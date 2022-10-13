@@ -22,7 +22,7 @@ exclude:
    - lib/
    - "*.gemspec"
    - "*.gem"
-   - LICENSE.txt
+   - LICENSE
    - package.json
    - package-lock.json
    - Rakefile
@@ -45,7 +45,7 @@ callouts:
     color: red
   more:
     title: More information
-    color: blue
+    color: grey-lt
     
 back_to_top: true
 back_to_top_text: "Back to top"
@@ -73,13 +73,22 @@ mermaid:
 heading_anchors: true
 
 aux_links:
-  "Idea Pool":
+  "@GitHub":
     - "//github.com/idea-pool"
+  "@WeAreCommunity":
+    - "//ideapool.community"
 
 aux_links_new_tab: true
 
-nav_external_links:
-  - title: Idea Pool@GitHub
-    url: https://github.com/idea-pool
-  - title: Idea Pool@WeAreCommunity
-    url: http://ideapool.community
+# nav_external_links:
+#   - title: Idea Pool@GitHub
+#     url: https://github.com/idea-pool
+#   - title: Idea Pool@WeAreCommunity
+#     url: http://ideapool.community
+
+gh_edit_link: true
+gh_edit_link_text: Help us improve this page
+gh_edit_repository: https://github.com/Idea-Pool/aws-testing
+
+ga_tracking: GTM-MN2TZZV
+ga_tracking_anonymize_ip: true
