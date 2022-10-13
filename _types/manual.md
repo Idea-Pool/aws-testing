@@ -1,4 +1,6 @@
 ---
-name: manual-testing
 title: Manual testing
+layout: default
 ---
+
+# Manual testing
