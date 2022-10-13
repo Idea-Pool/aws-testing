@@ -1,4 +1,4 @@
-# aws-testing
+# AWS Testing
 
 > **NOTE** that this documentation is still **under development**!
 
