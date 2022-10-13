@@ -45,7 +45,7 @@ callouts:
     color: red
   more:
     title: More information
-    color: grey-lt
+    color: grey-dk
     
 back_to_top: true
 back_to_top_text: "Back to top"
