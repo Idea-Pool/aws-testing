@@ -2,6 +2,7 @@
 title: AWS tools
 layout: default
 nav_order: 3
+description: Some of the tools that can be used for testing or in general to interract with AWS.
 ---
 
 # AWS tools
