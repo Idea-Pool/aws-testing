@@ -50,7 +50,11 @@ callouts:
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "Copyright &copy; 2022- Idea Pool Community. Distributed by an <a href=\"https://github.com/idea-pool/aws-testing/tree/main/LICENSE\">MIT license.</a> This site is <strong>under development</strong>."
+footer_content: Copyright &copy; 2022- Idea Pool Community. 
+  Distributed by an <a href="https://github.com/idea-pool/aws-testing/tree/main/LICENSE" target="_blank">MIT license.</a>
+  Idea Pool <a href="https://github.com/idea-pool" target="_blank">@GitHub</a>,
+  <a href="http://ideapool.community" target="_blank">@WeAreCommunity</a>.
+  This site is <strong>under development</strong>.
 
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
 last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
@@ -73,10 +77,8 @@ mermaid:
 heading_anchors: true
 
 aux_links:
-  "@GitHub":
-    - "//github.com/idea-pool"
-  "@WeAreCommunity":
-    - "//ideapool.community"
+  AWS Testing on GitHub:
+    - https://github.com/Idea-Pool/aws-testing
 
 aux_links_new_tab: true
 
@@ -89,6 +91,10 @@ aux_links_new_tab: true
 gh_edit_link: true
 gh_edit_link_text: Help us improve this page
 gh_edit_repository: https://github.com/Idea-Pool/aws-testing
+gh_edit_branch: main
+gh_edit_view_mode: tree
+
+color_scheme: nil
 
 ga_tracking: GTM-MN2TZZV
 ga_tracking_anonymize_ip: true
