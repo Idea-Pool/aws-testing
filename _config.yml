@@ -43,6 +43,9 @@ callouts:
   warning:
     title: Warning
     color: red
+  more:
+    title: More information
+    color: blue
     
 back_to_top: true
 back_to_top_text: "Back to top"
