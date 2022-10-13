@@ -1,3 +1,8 @@
+---
+title: AWS Testing
+layout: default
+nav_order: 1
+---
 # AWS Testing
 
 > **NOTE** that this documentation is still **under development**!
