@@ -1,7 +1,7 @@
 ---
-title: Lambda
+title: Step Function
 layout: default
 parent: AWS Services
 ---
 
-# Lambda
+# Step Function

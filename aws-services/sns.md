@@ -1,7 +1,7 @@
 ---
-title: Lambda
+title: SNS
 layout: default
 parent: AWS Services
 ---
 
-# Lambda
+# SNS

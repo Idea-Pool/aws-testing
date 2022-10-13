@@ -1,7 +1,7 @@
 ---
-title: Lambda
+title: EC2
 layout: default
 parent: AWS Services
 ---
 
-# Lambda
+# EC2

@@ -1,7 +1,7 @@
 ---
-title: Lambda
+title: SQS
 layout: default
 parent: AWS Services
 ---
 
-# Lambda
+# SQS

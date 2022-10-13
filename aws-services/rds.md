@@ -1,7 +1,7 @@
 ---
-title: Lambda
+title: RDS
 layout: default
 parent: AWS Services
 ---
 
-# Lambda
+# RDS

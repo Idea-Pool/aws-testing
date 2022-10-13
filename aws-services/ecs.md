@@ -1,7 +1,7 @@
 ---
-title: Lambda
+title: ECS
 layout: default
 parent: AWS Services
 ---
 
-# Lambda
+# ECS

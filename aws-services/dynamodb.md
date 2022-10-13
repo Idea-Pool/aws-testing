@@ -1,7 +1,7 @@
 ---
-title: Lambda
+title: DynamoDB
 layout: default
 parent: AWS Services
 ---
 
-# Lambda
+# DynamoDB

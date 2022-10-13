@@ -1,7 +1,7 @@
 ---
-title: Lambda
+title: IAM
 layout: default
 parent: AWS Services
 ---
 
-# Lambda
+# IAM

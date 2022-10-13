@@ -1,7 +1,7 @@
 ---
-title: Lambda
+title: Athena
 layout: default
 parent: AWS Services
 ---
 
-# Lambda
+# Athena

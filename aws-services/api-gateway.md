@@ -1,7 +1,7 @@
 ---
-title: Lambda
+title: API Gateway
 layout: default
 parent: AWS Services
 ---
 
-# Lambda
+# API Gateway

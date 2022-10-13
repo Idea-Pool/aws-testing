@@ -1,7 +1,7 @@
 ---
-title: Lambda
+title: Glue
 layout: default
 parent: AWS Services
 ---
 
-# Lambda
+# Glue

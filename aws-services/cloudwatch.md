@@ -1,7 +1,7 @@
 ---
-title: Lambda
+title: CloudWatch
 layout: default
 parent: AWS Services
 ---
 
-# Lambda
+# CloudWatch

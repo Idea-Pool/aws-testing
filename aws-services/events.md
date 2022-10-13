@@ -1,7 +1,7 @@
 ---
-title: Lambda
+title: Events
 layout: default
 parent: AWS Services
 ---
 
-# Lambda
+# Events
