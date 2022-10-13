@@ -22,28 +22,32 @@ Some of the tools that can be used for testing or in general to interract with A
 TBD
 
 {: .more }
-More: https://aws.amazon.com/console/
+<https://aws.amazon.com/console>
 
 ## AWS CLI
 
 TBD
 
-More: https://aws.amazon.com/cli
+{: .more }
+<https://aws.amazon.com/cli>
 
 ## AWS SDK
 
 TBD
 
-More: https://www.npmjs.com/package/aws-sdk
+{: .more }
+<https://www.npmjs.com/package/aws-sdk>
 
 ## AWS CDK
 
 TBD
 
-More: https://aws.amazon.com/cdk/
+{: .more }
+<https://aws.amazon.com/cdk>
 
 ## AWS SAM
 
 TBD
 
-More: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.html
+{: .more }
+<https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.html>
