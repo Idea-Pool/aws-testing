@@ -1,1 +1,30 @@
 remote_theme: just-the-docs/just-the-docs
+collections:
+  general:
+    permalink: '/general/:title'
+    output: true
+  types:
+    permalink: '/testing-types/:title'
+    output: true
+  services:
+    permalink: '/services/:title'
+    output: true
+  mocking:
+    permalink: '/mocking/:title'
+    output: true
+  tools:
+    permalink: '/tools/:title'
+    output: true
+
+just_the_docs:
+  collections:
+    general:
+      name: General
+    types:
+      name: Testing types
+    services:
+      name: Services
+    mocking:
+      name: Mocking
+    tools:
+      name: Tools, Libraries
