@@ -26,7 +26,7 @@ back_to_top_text: "Back to top"
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
 last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
 
-#logo: "/assets/images/ideapool.png"
+logo: "/assets/images/idea-pool.png"
 
 search_enabled: true
 search:
@@ -50,7 +50,7 @@ aux_links:
 aux_links_new_tab: true
 
 nav_external_links:
-  - title: Idea Pool on GitHub
+  - title: Idea Pool@GitHub
     url: https://github.com/idea-pool
-  - title: Idea Pool on WeAreCommunity
+  - title: Idea Pool@WeAreCommunity
     url: http://ideapool.community
