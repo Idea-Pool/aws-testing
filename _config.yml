@@ -1,7 +1,8 @@
 remote_theme: just-the-docs/just-the-docs
 
 title: AWS Testing
-url: "https://aws-testing.ideapool.community" # the base hostname & protocol for your site, e.g. http://example.com
+description: This is a guide on testing AWS services and in general about testing in AWS Cloud.
+url: https://aws-testing.ideapool.community
 
 permalink: pretty
 
@@ -48,13 +49,13 @@ callouts:
     color: grey-dk
     
 back_to_top: true
-back_to_top_text: "Back to top"
+back_to_top_text: Back to top
 
 footer_content: Copyright &copy; 2022- Idea Pool Community. 
   Distributed by an <a href="https://github.com/idea-pool/aws-testing/tree/main/LICENSE" target="_blank">MIT license.</a>
   Idea Pool <a href="https://github.com/idea-pool" target="_blank">@GitHub</a>,
   <a href="http://ideapool.community" target="_blank">@WeAreCommunity</a>.
-  This site is <strong>under development</strong>.
+  <br>This site is <strong>under development</strong>.
 
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
 last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
