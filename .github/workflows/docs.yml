@@ -1,4 +1,4 @@
-name: Page deployment
+name: Branch Deployment
 on:
   workflow_dispatch:
   push:
