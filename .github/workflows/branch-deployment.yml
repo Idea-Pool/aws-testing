@@ -43,4 +43,4 @@ jobs:
           SOURCE_DIR: "_site"
           DEST_DIR: ${{ steps.extract_branch.outputs.branch }}
       - name: Output
-        run: echo "url=https://${{ env.AWS_S3_BUCKET }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ steps.extract_branch.outputs.branch }}" >> $GITHUB_OUTPUT
+        run: echo "https://${{ env.AWS_S3_BUCKET }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ steps.extract_branch.outputs.branch }}/index.html" >> $GITHUB_STEP_SUMMARY
