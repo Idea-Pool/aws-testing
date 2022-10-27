@@ -16,10 +16,17 @@ jobs:
     steps:
       - name: Extract branch name
         shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        run: |
+          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Set base URL
+        env:
+          BASE_URL: ${{ steps.extract_branch.outputs.branch }}
+        run: |
+          echo "" >> _config.yml
+          echo "baseUrl: $BASE_URL" >> _config.yml
       - name: Build Page
         uses: actions/jekyll-build-pages@master
       - name: Deploy
