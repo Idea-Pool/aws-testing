@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build Page
-        uses: actions/jekyll-build-pages
+        uses: actions/jekyll-build-pages@master
       - name: Deploy
         uses: jakejarvis/s3-sync-action@master
         with:
