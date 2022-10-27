@@ -26,7 +26,8 @@ jobs:
           BASE_URL: ${{ steps.extract_branch.outputs.branch }}
         run: |
           echo "" >> _config.yml
-          echo "baseUrl: $BASE_URL" >> _config.yml
+          echo "baseUrl: /$BASE_URL" >> _config.yml
+          cat _config.yml
       - name: Build Page
         uses: actions/jekyll-build-pages@master
       - name: Deploy
