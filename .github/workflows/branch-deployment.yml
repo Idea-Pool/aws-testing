@@ -14,8 +14,6 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_S3_SECRET_ACCESS_KEY }}
       AWS_S3_BUCKET: "ideapool-aws-testing"
       AWS_REGION: "eu-central-1"
-    outputs:
-      url: https://${{ env.AWS_S3_BUCKET }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ steps.extract_branch.outputs.branch }}
     steps:
       - name: Extract branch name
         shell: bash
@@ -44,3 +42,5 @@ jobs:
           AWS_REGION: ${{ env.AWS_REGION }}
           SOURCE_DIR: "_site"
           DEST_DIR: ${{ steps.extract_branch.outputs.branch }}
+      - name: Output
+        run: echo "url=https://${{ env.AWS_S3_BUCKET }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ steps.extract_branch.outputs.branch }}" >> $GITHUB_OUTPUT
