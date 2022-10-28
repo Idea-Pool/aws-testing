@@ -24,7 +24,7 @@ jobs:
         with:
           args: --recursive
         env:
-          PATH_TO_DELETE: ${{ steps.extract_branch.outputs.branch }}
+          PATH_TO_DELETE: "/${{ steps.extract_branch.outputs.branch }}"
       - name: Invalidate CloudFront
         uses: chetan/invalidate-cloudfront-action@v2
         env:
