@@ -47,4 +47,4 @@ jobs:
       - name: Output
         run: | 
           echo "https://${{ env.AWS_CF_DOMAIN }}/${{ steps.extract_branch.outputs.branch }}" >> $GITHUB_STEP_SUMMARY
-          echo "https://${{ env.AWS_CF_DOMAIN }}/${{ steps.extract_branch.outputs.branch }}" >> $GITHUB_OUTPUT
+          echo "url=https://${{ env.AWS_CF_DOMAIN }}/${{ steps.extract_branch.outputs.branch }}" >> $GITHUB_OUTPUT
