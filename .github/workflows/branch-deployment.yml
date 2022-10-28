@@ -67,6 +67,6 @@ jobs:
       - name: Results
         id: results
         run: | 
-          URL="${{ secrets.CF_DISTRIBUTION_URL }}/${{ env.BRANCH }}"
+          URL="https://d1aanl86sh7an9.cloudfront.net/${{ env.BRANCH }}"
           echo "✔	Branch is successfully deploy to: $URL" >> $GITHUB_STEP_SUMMARY
           echo "url=$URL" >> $GITHUB_OUTPUT
