@@ -13,6 +13,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_S3_SECRET_ACCESS_KEY }}
       AWS_S3_BUCKET: "ideapool-aws-testing"
       AWS_REGION: "eu-central-1"
+      AWS_CF_DISTRIBUTION: "E2GO9UW2P84E3I"
     steps:
       - name: Extract branch name
         shell: bash
@@ -23,8 +24,9 @@ jobs:
         with:
           args: --recursive
         env:
-          AWS_S3_BUCKET: ${{ env.AWS_S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ env.AWS_REGION }}
           PATH_TO_DELETE: ${{ steps.extract_branch.outputs.branch }}
+      - name: Invalidate CloudFront
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ${{ env.AWS_CF_DISTRIBUTION }}
+          PATHS: "/${{ steps.extract_branch.outputs.branch }}/*"
