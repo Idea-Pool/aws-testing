@@ -10,7 +10,7 @@ jobs:
     name: Build Site
     runs-on: ubuntu-latest
     outputs:
-      - branch: ${{ steps.extract_branch.outputs.branch }}
+      branch: ${{ steps.extract_branch.outputs.branch }}
     steps:
       - name: Extract branch name
         shell: bash
