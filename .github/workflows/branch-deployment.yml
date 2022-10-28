@@ -42,7 +42,7 @@ jobs:
       - name: Invalidate CloudFront
         uses: chetan/invalidate-cloudfront-action@v2
         env:
-          DISTRIBUTION: ${{ env.AWS_CF_DISTRICUTION }}
+          DISTRIBUTION: ${{ env.AWS_CF_DISTRIBUTION }}
           PATHS: "/${{ steps.extract_branch.outputs.branch }}/*"
       - name: Output
         run: | 
