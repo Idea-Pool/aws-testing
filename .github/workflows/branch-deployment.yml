@@ -26,7 +26,7 @@ jobs:
           echo "baseurl: /$BASE_URL" >> _config.yml
           cat _config.yml
       - name: Build page
-        uses: actions/jekyll-build-pages@
+        uses: actions/jekyll-build-pages@master
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
