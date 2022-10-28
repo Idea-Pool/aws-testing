@@ -25,7 +25,7 @@ jobs:
           args: --recursive
         env:
           AWS_S3_BUCKET: "ideapool-aws-testing"
-          PATH_TO_DELETE: "/${{ steps.extract_branch.outputs.branch }}"
+          PATH_TO_DELETE: ${{ steps.extract_branch.outputs.branch }}
       - name: Invalidate CloudFront
         uses: chetan/invalidate-cloudfront-action@v2
         env:
