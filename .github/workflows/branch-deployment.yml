@@ -47,7 +47,7 @@ jobs:
       BRANCH: ${{ needs.build.outputs.branch }}
     steps:
       - name: Dowload artifact
-        useus: actions/download-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: site
           path: _site
