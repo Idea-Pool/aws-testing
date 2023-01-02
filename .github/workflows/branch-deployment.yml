@@ -40,7 +40,7 @@ jobs:
   deploy:
     name: Deploy to AWS
     runs-on: ubuntu-latest
-    environment: 
+    environment:
       name: aws-development
       url: ${{ steps.results.outputs.url }}
     needs: build
@@ -60,7 +60,7 @@ jobs:
         with:
           args: --follow-symlinks --delete
         env:
-          AWS_S3_BUCKET: "ideapool-aws-testing"
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           SOURCE_DIR: "_site"
           DEST_DIR: ${{ env.BRANCH }}
       - name: Invalidate CloudFront
@@ -70,7 +70,7 @@ jobs:
           PATHS: "/${{ env.BRANCH }}/*"
       - name: Results
         id: results
-        run: | 
-          URL="https://d1aanl86sh7an9.cloudfront.net/${{ env.BRANCH }}"
+        run: |
+          URL="${{ secrets.CF_DISTRIBUTION_URL }}/${{ env.BRANCH }}"
           echo "✔	Branch is successfully deploy to: $URL" >> $GITHUB_STEP_SUMMARY
           echo "url=$URL" >> $GITHUB_OUTPUT
