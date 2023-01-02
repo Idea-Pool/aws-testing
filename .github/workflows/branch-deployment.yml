@@ -27,6 +27,8 @@ jobs:
           cat _config.yml
       - name: Build page
         uses: actions/jekyll-build-pages@master
+        with:
+          source: docs
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
