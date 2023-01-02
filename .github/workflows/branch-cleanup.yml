@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Extract branch name
         shell: bash
-        run: |
+        run: | 
           BRANCH=$(cat ${{ github.event_path }} | jq --raw-output '.ref')
           echo "branch=${BRANCH#refs/heads/}" >> $GITHUB_OUTPUT
         id: extract_branch
@@ -24,13 +24,13 @@ jobs:
         with:
           args: --recursive
         env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_S3_BUCKET: "ideapool-aws-testing"
           PATH_TO_DELETE: ${{ steps.extract_branch.outputs.branch }}
       - name: Invalidate CloudFront
         uses: chetan/invalidate-cloudfront-action@v2
         env:
-          DISTRIBUTION: ${{ secrets.CF_DISTRIBUTION_ID }}
+          DISTRIBUTION: "E2GO9UW2P84E3I"
           PATHS: "/${{ steps.extract_branch.outputs.branch }}/*"
       - name: Output
-        run: |
+        run: | 
           echo "✔	Branch is successfully cleaned from AWS" >> $GITHUB_STEP_SUMMARY

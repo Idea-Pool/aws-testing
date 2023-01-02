@@ -1,8 +1,8 @@
 remote_theme: just-the-docs/just-the-docs
 
-title: Idea Pool GitHub Pages Template
-description: It is a template to host documentation/page on GitHub Pages (and on AWS).
-url: https://github-pages-template.ideapool.community
+title: AWS Testing
+description: This is a guide on testing AWS services and in general about testing in AWS Cloud.
+url: https://aws-testing.ideapool.community
 
 permalink: pretty
 
@@ -74,12 +74,12 @@ search:
 
 mermaid:
   version: "9.1.6"
-,
+
 heading_anchors: true
 
 aux_links:
-  GitHub Pages Template on GitHub:
-    - https://github.com/Idea-Pool/github-pages-template
+  AWS Testing on GitHub:
+    - https://github.com/Idea-Pool/aws-testing
 
 aux_links_new_tab: true
 
@@ -91,7 +91,7 @@ aux_links_new_tab: true
 
 gh_edit_link: true
 gh_edit_link_text: Help us improve this page
-gh_edit_repository: https://github.com/Idea-Pool/github-pages-template
+gh_edit_repository: https://github.com/Idea-Pool/aws-testing
 gh_edit_branch: main
 gh_edit_view_mode: tree
 

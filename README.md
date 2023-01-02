@@ -1,8 +1,8 @@
-# github-pages-tample
+# aws-testing
 
-This repository contains a template for hosting documentation, with:
-* `main` version hosted in GitHub Pages
-* branches hosted in AWS (`stack`)
+> **NOTE** that this documentation is still **under development**!
+
+This repository contains guides on testing AWS services and in general about testing in AWS Cloud.
 
 Structure:
 
