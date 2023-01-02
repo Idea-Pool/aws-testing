@@ -19,6 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set base URL
+        working-directory: docs
         env:
           BASE_URL: ${{ steps.extract_branch.outputs.branch }}
         run: |
@@ -27,6 +28,8 @@ jobs:
           cat _config.yml
       - name: Build page
         uses: actions/jekyll-build-pages@master
+        with:
+          source: ./docs
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
