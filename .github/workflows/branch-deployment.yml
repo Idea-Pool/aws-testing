@@ -32,7 +32,6 @@ jobs:
           source: ./docs
       - name: Upload artifact
         uses: actions/upload-artifact@v3
-        working-directory: docs
         with:
           name: site
           path: _site
