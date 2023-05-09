@@ -1,7 +1,11 @@
+# the theme we use
 remote_theme: just-the-docs/just-the-docs
 
+# this is the main title visible in the left side bar and in the browser title
 title: AWS Testing
+# this is the description from the meta tags
 description: This is a guide on testing AWS services and in general about testing in AWS Cloud.
+# the base URL/domain
 url: https://aws-testing.ideapool.community
 
 permalink: pretty
@@ -29,6 +33,10 @@ exclude:
    - Rakefile
    - README.md
 
+# these are the information boxes can be used in the documents
+# e.g.
+# {: .more }
+# some more information
 callouts:
   highlight:
     color: yellow
