@@ -14,7 +14,7 @@ Through the pages of this guide, we will explore the following questions:
 1. What is the cloud, and what is AWS?
 2. What tools can we use to interact with AWS?
 3. How do different testing types apply to cloud environments?
-4. What are the main AWS services, and how can we test them effectively?
+4. What are the main AWS services, and how can we test them[^1] effectively?
 5. What solutions can we utilize to mock and stub during testing?
 6. What are the main testing tools available for AWS?
 
