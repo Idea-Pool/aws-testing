@@ -5,7 +5,7 @@ nav_order: 1
 ---
 # Introduction
 
-Testing is a crucial part of the software development lifecycle, and it becomes even more important in the context of **cloud computing**. With the rise of cloud services like **Amazon Web Services** (AWS), developers and testers need to adapt their testing practices to ensure the **reliability**, **security**, and **performance** of their applications.
+Testing is a crucial part of the software development lifecycle, and it becomes even more important in the context of **cloud computing**. With the rise of cloud services like **Amazon Web Services** (AWS), developers and testers need to adapt their testing practices to ensure software product quality (including quality attributes, e.g: **functional suitability**, **reliability**, **security**, **performance**) of their applications.
 {: .fs-6 .fw-300 }
 
 {: .note }
