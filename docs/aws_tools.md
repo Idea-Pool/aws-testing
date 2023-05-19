@@ -12,7 +12,7 @@ The testing process for AWS services involves utilizing a variety of tools to ef
 
 This page provides an overview of essential tools commonly used in testing AWS services. Each tool serves a specific purpose, offering features and capabilities that support different testing tasks and types. By leveraging these tools, you can streamline your testing efforts and ensure the reliability of your AWS deployments.
 
-*Note: The provided tasks are focused on testing-specific use cases for each tool. However, these tools offer a broader range of capabilities beyond testing, which can be explored in their respective documentation.*
+*Note: The following list is not a comprehensive list of the tools related to testing AWS resources. The mentioned example tasks are focused on testing-specific use cases for each tool. However, these tools offer a broader range of capabilities beyond testing, which can be explored in their respective documentation.*
 
 ## Table of contents
 {: .no_toc .text-delta}
@@ -44,11 +44,11 @@ The AWS CLI is particularly useful for tasks related to integration testing, sys
 
 ## AWS SDK
 
-The AWS Software Development Kit (SDK) provides programming interfaces and libraries for multiple programming languages. It allows developers to interact with AWS services programmatically, integrating AWS functionality into their applications. The AWS SDK provides a range of features and utilities to simplify the development and testing process, including authentication, request signing, and service-specific operations.
+The AWS Software Development Kit (SDK) provides programming interfaces and libraries for multiple programming languages. It allows engineers to interact with AWS services programmatically, integrating AWS functionality into their applications and tests. The AWS SDK provides a range of features and utilities to simplify the development and testing process, including authentication, request signing, and service-specific operations.
 
 The AWS SDK is used for writing custom test scripts and scenarios to validate application behavior, simulating interactions with AWS services for testing purposes, and automating the execution of test cases and scenarios using the AWS SDK.
 
-The AWS SDK is essential for tasks associated with unit testing, integration testing, system testing, and performance testing. It enables developers to write test code and interact with AWS services to validate the behavior and functionality of their applications.
+The AWS SDK is essential for tasks associated with unit testing, integration testing, system testing, and performance testing.
 
 {: .more }
 <https://www.npmjs.com/package/aws-sdk>{:target="_blank"}
@@ -59,7 +59,7 @@ The AWS Cloud Development Kit (CDK) is an open-source software development frame
 
 The AWS CDK is used for defining and provisioning AWS resources specifically for testing purposes, managing and automating infrastructure configuration for testing, and testing infrastructure changes and deployments in a controlled manner.
 
-Types: The AWS CDK is particularly relevant for infrastructure testing, integration testing, and system testing. It allows developers to define and provision AWS resources in a structured manner and test the infrastructure changes before deployment.
+The AWS CDK is particularly relevant for infrastructure testing, integration testing, and system testing.
 
 {: .more }
 <https://aws.amazon.com/cdk>{:target="_blank"}
