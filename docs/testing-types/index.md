@@ -8,6 +8,7 @@ has_children: true
 # Testing types applied for AWS
 
 The following list is a high-level description of each testing type relevant to this guide. Each testing type plays a crucial role in ensuring the quality, reliability, and performance of applications in the AWS cloud environment.
+{: .fs-6 .fw-300 }
 
 To learn more about each type and best practices for implementation, we recommend visiting their respective pages. This guide provides a comprehensive overview of testing practices tailored specifically to the AWS ecosystem.
 
