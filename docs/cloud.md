@@ -12,7 +12,7 @@ nav_order: 2
 To put it in practice, consider a webshop hosted on the cloud. Instead of setting up physical servers and managing infrastructure, the webshop can leverage cloud services. It can utilize **virtual servers**, **object storage** for product images, **managed databases** for storing customer data, and **content delivery networks** (CDNs) for faster content delivery. The webshop can **scale** resources based on demand, ensuring a seamless shopping experience for customers.
 
 {: .more }
-If you are interested in the history and more details of Cloud Computing, visit <https://en.wikipedia.org/wiki/Cloud_computing>.
+If you are interested in the history and more details of Cloud Computing, visit <https://en.wikipedia.org/wiki/Cloud_computing>{:target="_blank"}.
 
 ## Approaches
 
@@ -49,15 +49,15 @@ In the realm of cloud computing, various service models exist to cater to divers
 The main difference among these service models lies in the **ownership** and **management** responsibilities. With IaaS, organizations have more control over the infrastructure layer and are responsible for managing and maintaining the operating systems, middleware, and applications. In PaaS, the responsibility shifts to the cloud provider, who manages the underlying infrastructure, while organizations focus on application development. SaaS, on the other hand, transfers the ownership and management entirely to the service provider, as they handle the entire software stack. FaaS further abstracts the infrastructure layer, allowing developers to focus solely on writing and deploying functions, without any ownership of the underlying infrastructure.
 
 {: .more }
-To learn more about the service models in AWS, visit <https://aws.amazon.com/types-of-cloud-computing>.
+To learn more about the service models in AWS, visit <https://aws.amazon.com/types-of-cloud-computing>{:target="_blank"}.
 
 ## Cloud Providers
 
 Explore the three prominent cloud providers that are renowned for their extensive public cloud offerings as well as robust support for private and hybrid cloud environments, making them crucial considerations in your cloud journey.
 
-* **Amazon Web Services (AWS)**: [AWS](https://aws.amazon.com/) is a comprehensive and widely adopted cloud platform offering a broad range of services, including compute, storage, databases, machine learning, and more. It provides a highly scalable and secure infrastructure, with extensive global coverage and a rich ecosystem of tools and services.
-* **Microsoft Azure**: [Microsoft Azure](https://azure.microsoft.com/) is a cloud computing platform that provides a wide array of services for building, deploying, and managing applications. It offers integration with Microsoft tools and technologies, robust support for hybrid scenarios, and a strong focus on enterprise capabilities.
-* **Google Cloud Platform (GCP)**: [GCP](https://cloud.google.com/gcp) provides a suite of cloud computing services, including compute, storage, networking, machine learning, and data analytics. It emphasizes data analytics, machine learning, and AI capabilities, with seamless integration with other Google services.
+* **Amazon Web Services (AWS)**: [AWS](https://aws.amazon.com/){:target="_blank"} is a comprehensive and widely adopted cloud platform offering a broad range of services, including compute, storage, databases, machine learning, and more. It provides a highly scalable and secure infrastructure, with extensive global coverage and a rich ecosystem of tools and services.
+* **Microsoft Azure**: [Microsoft Azure](https://azure.microsoft.com/){:target="_blank"} is a cloud computing platform that provides a wide array of services for building, deploying, and managing applications. It offers integration with Microsoft tools and technologies, robust support for hybrid scenarios, and a strong focus on enterprise capabilities.
+* **Google Cloud Platform (GCP)**: [GCP](https://cloud.google.com/gcp){:target="_blank"} provides a suite of cloud computing services, including compute, storage, networking, machine learning, and data analytics. It emphasizes data analytics, machine learning, and AI capabilities, with seamless integration with other Google services.
 
 ## Testing
 
@@ -67,7 +67,7 @@ Testing in the cloud shares similarities with traditional application testing bu
 * **Non-functional testing** is more important in the cloud due to the dynamic and scalable nature of cloud environments. It focuses on aspects such as performance, scalability, security, and resilience. Non-functional testing in the cloud allows for load testing at scale, assessing system performance under various scenarios. It also facilitates security testing, including vulnerability assessments and penetration testing, to ensure data protection and compliance. The cloud provides a robust foundation for non-functional testing, enabling comprehensive validation of application behavior and quality.
 
 {: .more }
-To learn more about Cloud Computing, one good source is <https://www.guru99.com/cloud-computing-for-beginners.html>.
+To learn more about Cloud Computing, one good source is <https://www.guru99.com/cloud-computing-for-beginners.html>{:target="_blank"}.
 
 {: .questions }
 > 1. What are the three main types of clouds in terms of ownership and security?
