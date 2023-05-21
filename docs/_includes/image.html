@@ -2,7 +2,10 @@
     <img src="{{ include.url }}" alt="{{ include.description }}">
     <figcaption>
         {{ include.description }}
-        {% if include.url contains "http" %}
+        {% if include.source %}
+            - Source:
+            <a href="{{ include.source }}" target="_blank">{{ include.source }}</a>
+        {% elsif include.url contains "http" %}
             - Source:
             <a href="{{ include.url }}" target="_blank">{{ include.url }}</a>
         {% endif %}
