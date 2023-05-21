@@ -1,5 +1,9 @@
 <figure class="image">
-    <img src="{{ include.url }}" alt="{{ include.description }}">
+    {% if include.url contains "/assets/" %}
+        <img src="{{ site.baseurl }}{{ include.url }}" alt="{{ include.description }}">
+    {% else %}
+        <img src="{{ include.url }}" alt="{{ include.description }}">
+    {% endif %}
     <figcaption>
         {{ include.description }}
         {% if include.source %}
