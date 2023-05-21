@@ -49,7 +49,7 @@ In the realm of cloud computing, various service models exist to cater to divers
 * **Function as a Service (FaaS)**: FaaS, also known as **serverless computing**, allows developers to execute individual functions or units of code in response to events. It abstracts away the infrastructure management, enabling developers to focus solely on writing and deploying functions. FaaS is highly scalable, as it automatically scales the execution environment based on demand.
 
 {% include image.html 
-    url="https://www.guru99.com/images/3/saas-vs-paas-vs-iaas-1.png" 
+    url="{{ site.baseurl }}/assets/images/cloud_service_models.png" 
     description="Services you or the Vendors’ manager in different models"
 %}
 
