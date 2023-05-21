@@ -65,3 +65,13 @@ Testing in the cloud shares similarities with traditional application testing bu
 
 {: .more }
 To learn more about Cloud Computing, one good source is <https://www.guru99.com/cloud-computing-for-beginners.html>.
+
+{: .questions }
+1. What are the three main types of clouds in terms of ownership and security?
+2. Define public, private, and hybrid clouds and provide a brief explanation of their characteristics.
+3. What is the difference between IaaS, PaaS, and SaaS? Provide a concise definition for each.
+4. Explain how each service model offloads responsibilities to the cloud provider and impacts ownership and management for organizations.
+5. Name three leading cloud providers and briefly describe their core offerings and strengths.
+6. Discuss the benefits and considerations of each cloud provider in terms of scalability, reliability, and service diversity.
+7. Differentiate between virtual machines (VMs), containerization, and cloud-native services.
+8. Explain how VMs, containers, and cloud-native services contribute to scalability, deployment flexibility, and resource optimization in the cloud.
