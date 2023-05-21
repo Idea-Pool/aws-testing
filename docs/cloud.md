@@ -41,18 +41,16 @@ In the context of **ownership** and security, we can broadly categorize clouds i
 
 ## Service Models
 
-In the realm of cloud computing, various service models exist to cater to diverse business needs. 
-
-* **Infrastructure as a Service (IaaS)**: With IaaS, organizations have access to **virtualized infrastructure resources**, such as virtual machines, storage, and networking components. It provides a flexible and scalable infrastructure foundation, allowing businesses to manage and control their applications and data while eliminating the need for physical hardware ownership.
-* **Platform as a Service (PaaS)**: PaaS offers a **platform** on which developers can **build and deploy applications**. It provides a complete development and deployment environment, including infrastructure, development tools, and runtime environment. PaaS abstracts away the underlying infrastructure complexities, allowing developers to focus on application development rather than infrastructure management.
-* **Software as a Service (SaaS)**: SaaS delivers **software applications over the internet** on a subscription basis. Users can access and use these applications through a web browser or client interface without the need for local installation. SaaS eliminates the need for organizations to manage software installation, maintenance, and updates, as these responsibilities lie with the service provider.
-* **Function as a Service (FaaS)**: FaaS, also known as **serverless computing**, allows developers to execute individual functions or units of code in response to events. It abstracts away the infrastructure management, enabling developers to focus solely on writing and deploying functions. FaaS is highly scalable, as it automatically scales the execution environment based on demand.
+In the realm of cloud computing, various service models exist to cater to diverse business needs. The main difference among these service models lies in the **ownership** and **management** responsibilities.
 
 {% include image.html 
     url="/assets/images/cloud_service_models.png"
     description="Services you or the Vendors’ manager in different models" %}
 
-The main difference among these service models lies in the **ownership** and **management** responsibilities. With IaaS, organizations have more control over the infrastructure layer and are responsible for managing and maintaining the operating systems, middleware, and applications. In PaaS, the responsibility shifts to the cloud provider, who manages the underlying infrastructure, while organizations focus on application development. SaaS, on the other hand, transfers the ownership and management entirely to the service provider, as they handle the entire software stack. FaaS further abstracts the infrastructure layer, allowing developers to focus solely on writing and deploying functions, without any ownership of the underlying infrastructure.
+* **Infrastructure as a Service (IaaS)**: With IaaS, organizations have access to **virtualized infrastructure resources**, such as virtual machines, storage, and networking components. It provides a flexible and scalable infrastructure foundation, allowing businesses to manage and control their applications and data while eliminating the need for physical hardware ownership.
+* **Platform as a Service (PaaS)**: PaaS offers a **platform** on which developers can **build and deploy applications**. It provides a complete development and deployment environment, including infrastructure, development tools, and runtime environment. PaaS abstracts away the underlying infrastructure complexities, allowing developers to focus on application development rather than infrastructure management.
+* **Function as a Service (FaaS)**: FaaS, also known as **serverless computing**, allows developers to execute individual functions or units of code in response to events. It abstracts away the infrastructure management, enabling developers to focus solely on writing and deploying functions. FaaS is highly scalable, as it automatically scales the execution environment based on demand.
+* **Software as a Service (SaaS)**: SaaS delivers **software applications over the internet** on a subscription basis. Users can access and use these applications through a web browser or client interface without the need for local installation. SaaS eliminates the need for organizations to manage software installation, maintenance, and updates, as these responsibilities lie with the service provider.
 
 {: .more }
 To learn more about the service models in AWS, visit <https://aws.amazon.com/types-of-cloud-computing>{:target="_blank"}.
