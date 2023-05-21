@@ -41,7 +41,10 @@ In the realm of cloud computing, various service models exist to cater to divers
 * **Software as a Service (SaaS)**: SaaS delivers **software applications over the internet** on a subscription basis. Users can access and use these applications through a web browser or client interface without the need for local installation. SaaS eliminates the need for organizations to manage software installation, maintenance, and updates, as these responsibilities lie with the service provider.
 * **Function as a Service (FaaS)**: FaaS, also known as **serverless computing**, allows developers to execute individual functions or units of code in response to events. It abstracts away the infrastructure management, enabling developers to focus solely on writing and deploying functions. FaaS is highly scalable, as it automatically scales the execution environment based on demand.
 
-{% include image.html url="https://www.guru99.com/images/3/saas-vs-paas-vs-iaas-1.png" description="Services you or the Vendors’ manager in different models - Source: https://www.guru99.com/saas-vs-paas-vs-iaas.html" %}
+{% include image.html 
+    url="https://www.guru99.com/images/3/saas-vs-paas-vs-iaas-1.png" 
+    description="Services you or the Vendors’ manager in different models"
+%}
 
 The main difference among these service models lies in the **ownership** and **management** responsibilities. With IaaS, organizations have more control over the infrastructure layer and are responsible for managing and maintaining the operating systems, middleware, and applications. In PaaS, the responsibility shifts to the cloud provider, who manages the underlying infrastructure, while organizations focus on application development. SaaS, on the other hand, transfers the ownership and management entirely to the service provider, as they handle the entire software stack. FaaS further abstracts the infrastructure layer, allowing developers to focus solely on writing and deploying functions, without any ownership of the underlying infrastructure.
 
