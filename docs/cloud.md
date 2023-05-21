@@ -5,9 +5,16 @@ nav_order: 2
 ---
 
 # Cloud
+{: .no_toc }
 
 **Cloud computing** refers to the delivery of computing resources, such as servers, storage, databases, networking, and software, over the internet. It allows organizations to access and utilize these resources on-demand, without the need for on-premises infrastructure. The cloud offers **scalability, flexibility, and cost-effectiveness**, enabling businesses to focus on their core operations while leveraging powerful computing capabilities.
 {: .fs-6 .fw-300 }
+
+## Table of contents
+{: .no_toc .text-delta}
+
+1. TOC
+{:toc}
 
 To put it in practice, consider a webshop hosted on the cloud. Instead of setting up physical servers and managing infrastructure, the webshop can leverage cloud services. It can utilize **virtual servers**, **object storage** for product images, **managed databases** for storing customer data, and **content delivery networks** (CDNs) for faster content delivery. The webshop can **scale** resources based on demand, ensuring a seamless shopping experience for customers.
 
