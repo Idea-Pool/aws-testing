@@ -10,15 +10,15 @@ nav_order: 3
 The testing process for AWS services involves utilizing a variety of tools to effectively validate the functionality, performance, and security of your applications.
 {: .fs-6 .fw-300 }
 
-This page provides an overview of essential tools commonly used in testing AWS services. Each tool serves a specific purpose, offering features and capabilities that support different testing tasks and types. By leveraging these tools, you can streamline your testing efforts and ensure the reliability of your AWS deployments.
-
-*Note: The following list is not a comprehensive list of the tools related to testing AWS resources. The mentioned example tasks are focused on testing-specific use cases for each tool. However, these tools offer a broader range of capabilities beyond testing, which can be explored in their respective documentation.*
-
 ## Table of contents
 {: .no_toc .text-delta}
 
 1. TOC
 {:toc}
+
+This page provides an overview of essential tools commonly used in testing AWS services. Each tool serves a specific purpose, offering features and capabilities that support different testing tasks and types. By leveraging these tools, you can streamline your testing efforts and ensure the reliability of your AWS deployments.
+
+*Note: The following list is not a comprehensive list of the tools related to testing AWS resources. The mentioned example tasks are focused on testing-specific use cases for each tool. However, these tools offer a broader range of capabilities beyond testing, which can be explored in their respective documentation.*
 
 ## AWS Console
 
