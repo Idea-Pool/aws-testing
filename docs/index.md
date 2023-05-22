@@ -28,4 +28,4 @@ It's important to note that both testing and AWS services are constantly evolvin
 Let's dive into the world of testing in AWS!
 
 [^1]: When discussing testing practices for AWS, it's important to note that we won't be testing the AWS services themselves. Instead, we will focus on testing the applications built on top of these services.
-[^2]: 7 Principles of Software Testing - <https://www.guru99.com/software-testing-seven-principles.html>
+[^2]: 7 Principles of Software Testing - <https://www.guru99.com/software-testing-seven-principles.html>{:target="_blank"}
