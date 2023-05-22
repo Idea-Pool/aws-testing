@@ -76,7 +76,7 @@ To learn more about Cloud Computing, one good source is <https://www.guru99.com/
 {: .questions }
 > 1. What are the three main cloud types in terms of ownership and security?
 > 1. Define public, private, and hybrid clouds and provide a brief explanation of their characteristics.
-> 1. What is the difference between IaaS, PaaS, and SaaS? Provide a concise definition for each.
+> 1. What are the differences between IaaS, PaaS, and SaaS? Provide a concise definition for each.
 > 1. Explain how each service model offloads responsibilities to the cloud provider and impacts ownership and management for organizations.
 > 1. Name three leading cloud providers and briefly describe their core offerings and strengths.
 > 1. Discuss the benefits and considerations of each cloud provider in terms of scalability, reliability, and service diversity.
