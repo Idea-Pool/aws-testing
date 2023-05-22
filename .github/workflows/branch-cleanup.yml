@@ -31,6 +31,12 @@ jobs:
         env:
           DISTRIBUTION: "E2GO9UW2P84E3I"
           PATHS: "/${{ steps.extract_branch.outputs.branch }}/*"
+      - uses: strumwolf/delete-deployment-environment@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: aws-development
+          ref: ${{ steps.extract_branch.outputs.branch }}
+          onlyDeactivateDeployments: true
       - name: Output
         run: | 
           echo "✔	Branch is successfully cleaned from AWS" >> $GITHUB_STEP_SUMMARY
