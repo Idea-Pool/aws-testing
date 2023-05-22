@@ -45,7 +45,7 @@ In the realm of cloud computing, various service models exist to cater to divers
 
 {% include image.html 
     url="/assets/images/cloud_service_models.png"
-    description="Services you or the Vendors’ manager in different models" %}
+    description="Services you or the Vendor manages in different models" %}
 
 * **Infrastructure as a Service (IaaS)**: With IaaS, organizations have access to **virtualized infrastructure resources**, such as virtual machines, storage, and networking components. It provides a flexible and scalable infrastructure foundation, allowing businesses to manage and control their applications and data while eliminating the need for physical hardware ownership.
 * **Platform as a Service (PaaS)**: PaaS offers a **platform** on which developers can **build and deploy applications**. It provides a complete development and deployment environment, including infrastructure, development tools, and runtime environment. PaaS abstracts away the underlying infrastructure complexities, allowing developers to focus on application development rather than infrastructure management.
