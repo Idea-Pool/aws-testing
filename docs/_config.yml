@@ -55,6 +55,9 @@ callouts:
   more:
     title: More information
     color: grey-dk
+  questions:
+    title: Assess Your Understanding
+    color: green
     
 back_to_top: true
 back_to_top_text: Back to top
