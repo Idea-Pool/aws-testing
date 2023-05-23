@@ -138,7 +138,7 @@ Constructor testing has two main approaches:
 * **Snapshot tests** test the synthesized AWS CloudFormation template against a previously stored baseline template
 
 {: .important }
-In our sample stack, we will mostly implement fine-grained assertions for our CDK stack.
+In our sample stacks, we will mostly implement fine-grained assertions for our CDK stack.
 
 {: .more }
 You can visit the [Testing constructs](https://docs.aws.amazon.com/cdk/v2/guide/testing.html) page of AWS to learn more about the practices of the constructor testing.
@@ -164,7 +164,7 @@ describe('S3 Website with CloudFront', () => {
     }));
   });
 
-  test('CloudFront distribution is created with allow-all viewer protocol policy', () => {
+  test('CloudFront distribution is created with the bucket origin', () => {
     cdkExpect(stack).to(haveResource('AWS::CloudFront::Distribution', {
       DistributionConfig: {
         Origins: [
@@ -213,7 +213,7 @@ describe('S3 Website with CloudFront', () => {
       .exists();
   });
 
-  test('CloudFront distribution is created with allow-all viewer protocol policy', () => {
+  test('CloudFront distribution is created with the bucket origin', () => {
     template
       .cloudFrontDistribution()
       .withPublicS3BucketOrigin(template.s3Bucket())
@@ -263,7 +263,8 @@ describe('S3 Website with CloudFront', () => {
     const distributionDomainName = await getStackOutput(stackName, 'WebsiteURL');
 
     const cloudFront = new AWS.CloudFront();
-    const getDistributionResponse = await cloudFront.getDistribution({ Id: distributionDomainName }).promise();
+    const getDistributionResponse = 
+      await cloudFront.getDistribution({ Id: distributionDomainName }).promise();
 
     expect(getDistributionResponse.Distribution).toBeDefined();
   });
@@ -287,7 +288,8 @@ describe('S3 Website with CloudFront', () => {
 
 async function getStackOutput(stackName: string, outputKey: string): Promise<string> {
   const cloudFormation = new AWS.CloudFormation({ region: awsRegion });
-  const describeStacksResponse = await cloudFormation.describeStacks({ StackName: stackName }).promise();
+  const describeStacksResponse = 
+    await cloudFormation.describeStacks({ StackName: stackName }).promise();
 
   const stack = describeStacksResponse.Stacks?.[0];
   const output = stack?.Outputs?.find((o: any) => o.OutputKey === outputKey);
