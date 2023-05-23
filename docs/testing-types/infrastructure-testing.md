@@ -117,7 +117,7 @@ This is where the integration with CloudFormation comes into the picture. AWS CD
 
 When the CDK code is deployed, AWS CloudFormation uses the synthesized template to create and manage the AWS resources accordingly. CloudFormation takes care of resource provisioning, dependency management, and handles the orchestration of the deployment process. This ensures that the infrastructure defined using AWS CDK is accurately translated into the appropriate AWS resource configurations.
 
-{: .note }
+{: .important }
 In the pages of this documentation, we will use AWS CDK to define the infrastructure of the sample stack.
 
 ## Types of Infrastructure Testing
@@ -128,9 +128,107 @@ Infrastructure testing can be broadly categorized into two main types: static te
 
 Static testing plays a critical role in catching potential issues early in the deployment process. It involves validating the IaC templates for their correctness and reliability.
 
-Constructor testing is a fundamental aspect of static testing, which checks for syntax errors, resource dependencies, and parameter validation.
+**Constructor testing** is a fundamental aspect of static testing, which checks for syntax errors, resource dependencies, and parameter validation.
 
 When designing test cases for static testing, consider scenarios like template parameter variations, resource configuration edge cases, and security compliance checks.
+
+Constructor testing has two main approaches:
+
+* **Fine-grained assertions** test specific aspects of the generated AWS CloudFormation template, such as "this resource has this property with this value." that potentially can detect regressions.
+* **Snapshot tests** test the synthesized AWS CloudFormation template against a previously stored baseline template
+
+{: .important }
+In our sample stack, we will mostly implement fine-grained assertions for our CDK stack.
+
+{: .more }
+You can visit the [Testing constructs](https://docs.aws.amazon.com/cdk/v2/guide/testing.html) page of AWS to learn more about the practices of the constructor testing.
+
+In short, for our previous example a test suite would like the following:
+
+```typescript
+import { expect as cdkExpect, haveResource, Match } from 'aws-cdk-lib/assertions';
+import * as cdk from 'aws-cdk-lib';
+import { S3WebsiteWithCloudFrontStack } from './S3WebsiteWithCloudFrontStack';
+
+describe('S3 Website with CloudFront', () => {
+  let stack: S3WebsiteWithCloudFrontStack;
+
+  beforeEach(() => {
+    const app = new cdk.App();
+    const stack = new S3WebsiteWithCloudFrontStack(app, 'TestStack');
+  });
+
+  test('S3 bucket is created with public read access control', () => {
+    cdkExpect(stack).to(haveResource('AWS::S3::Bucket', {
+      AccessControl: 'PublicRead',
+    }));
+  });
+
+  test('CloudFront distribution is created with allow-all viewer protocol policy', () => {
+    cdkExpect(stack).to(haveResource('AWS::CloudFront::Distribution', {
+      DistributionConfig: {
+        Origins: [
+          Match.objectLike({
+            DomainName: stack.resolve(stack.s3BucketForWebsiteContent.websiteUrl),
+          })
+        ],
+      },
+    }));
+  });
+
+  test('Route 53 CNAME record is created with the expected properties', () => {
+    cdkExpect(stack).to(haveResource('AWS::Route53::RecordSet', {
+      Type: 'CNAME',
+      TTL: '900',
+      ResourceRecords: [
+        stack.resolve(stack.websiteCDN.distributionDomainName),
+      ],
+    }));
+  });
+});
+```
+
+Or by using [aws-cdk-assert](https://github.com/Idea-Pool/aws-cdk-assert):
+
+```typescript
+import * as cdk from 'aws-cdk-lib';
+import { S3WebsiteWithCloudFrontStack } from './S3WebsiteWithCloudFrontStack';
+import { AdvancedTemplate } from 'aws-cdk-assert';
+import { RecordType } from "aws-cdk-lib/aws-route53";
+
+describe('MyStack', () => {
+  let template: AdvancedTemplate;
+
+  beforeAll(() => {
+    const app = new cdk.App();
+    const stack = new S3WebsiteWithCloudFrontStack(app, 'TestStack');
+    template = AdvancedTemplate.fromStack(stack);
+  });
+
+
+  test('S3 bucket is created with public read access control', () => {
+    template
+      .s3Bucket()
+      .withProperty('AccessControl', 'PublicRead')
+      .exists();
+  });
+
+  test('CloudFront distribution is created with allow-all viewer protocol policy', () => {
+    template
+      .cloudFrontDistribution()
+      .withPublicS3BucketOrigin(template.s3Bucket())
+      .exists();
+  });
+
+  test('Route 53 CNAME record is created with the expected properties', () => {
+     template
+      .route53RecordSet()
+      .withRecordType(RecordType.CNAME)
+      .withAliasToS3()
+      .exists();
+  });
+});
+```
 
 ### Dynamic Testing
 
