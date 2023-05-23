@@ -196,7 +196,7 @@ import { S3WebsiteWithCloudFrontStack } from './S3WebsiteWithCloudFrontStack';
 import { AdvancedTemplate } from 'aws-cdk-assert';
 import { RecordType } from "aws-cdk-lib/aws-route53";
 
-describe('MyStack', () => {
+describe('S3 Website with CloudFront', () => {
   let template: AdvancedTemplate;
 
   beforeAll(() => {
@@ -240,6 +240,58 @@ During deployment validation, you should test various aspects such as resource c
 
 Dynamic testing can be performed manually by following predefined test scripts and conducting exploratory testing. To achieve higher efficiency and scalability, it is advisable to automate dynamic testing using custom scripts leveraging AWS SDKs.
 
-## Let's see it in action!
+An example test suite for the example stack could be the following (using TypeScript, Jest, and AWS SDK):
 
-Coming soon...
+```typescript
+import AWS from 'aws-sdk';
+
+const awsRegion = process.env.AWS_REGION;
+const stackName = process.env.STACK_NAME;
+const hostedZoneName = process.env.HOSTED_ZONE_NAME;
+
+describe('S3 Website with CloudFront', () => {
+  test('S3 bucket is created and accessible', async () => {
+    const s3BucketName = await getStackOutput(stackName, 'BucketName');
+
+    const s3 = new AWS.S3({ region: awsRegion });
+    const listObjectsResponse = await s3.listObjectsV2({ Bucket: s3BucketName }).promise();
+
+    expect(listObjectsResponse.Contents).toBeDefined();
+  });
+
+  test('CloudFront distribution is deployed and returns a valid response', async () => {
+    const distributionDomainName = await getStackOutput(stackName, 'WebsiteURL');
+
+    const cloudFront = new AWS.CloudFront();
+    const getDistributionResponse = await cloudFront.getDistribution({ Id: distributionDomainName }).promise();
+
+    expect(getDistributionResponse.Distribution).toBeDefined();
+  });
+
+  test('Route 53 record set is created with the correct domain name', async () => {
+    const recordSetName = await getStackOutput(stackName, 'WebsiteURL');
+
+    const route53 = new AWS.Route53();
+    const zone = await route53.listHostedZonesByName({ DNSName: hostedZoneName }).promise();
+    const listResourceRecordSetsResponse = await route53.listResourceRecordSets({
+      HostedZoneId: zone.HostedZones[0].Id,
+    }).promise();
+
+    const recordSet = listResourceRecordSetsResponse.ResourceRecordSets?.find(
+      (rs: any) => rs.Name === `${recordSetName}.${hostedZoneName}.`
+    );
+
+    expect(recordSet).toBeDefined();
+  });
+});
+
+async function getStackOutput(stackName: string, outputKey: string): Promise<string> {
+  const cloudFormation = new AWS.CloudFormation({ region: awsRegion });
+  const describeStacksResponse = await cloudFormation.describeStacks({ StackName: stackName }).promise();
+
+  const stack = describeStacksResponse.Stacks?.[0];
+  const output = stack?.Outputs?.find((o: any) => o.OutputKey === outputKey);
+
+  return output?.OutputValue;
+}
+```
