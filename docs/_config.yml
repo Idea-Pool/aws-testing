@@ -111,8 +111,6 @@ color_scheme: nil
 ga_tracking: GTM-MN2TZZV
 ga_tracking_anonymize_ip: true
 
-paginate: 5
-
 compress_html:
   ignore:
     envs: all
