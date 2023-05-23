@@ -6,9 +6,9 @@
   },
   "scripts": {
     "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest",
-    "cdk": "cdk"
+    "deploy": "cdk deploy",
+    "predeploy": "jest test/constructor",
+    "postdeploy": "jest test/deployment"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",

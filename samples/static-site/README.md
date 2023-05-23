@@ -1,14 +1,22 @@
-# Welcome to your CDK TypeScript project
+# Sample Projects / Static Site
 
-This is a blank project for CDK development with TypeScript.
+This is a sample project for hosting a simple static website in AWS.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Deployment
 
-## Useful commands
+To deploy the stack, run the following command:
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+```commandline
+npm run deploy
+```
+
+To pass any argument to the AWS CDK, use the following format:
+
+```commandline
+npm run deploy -- --profile some-profile
+```
+
+The deployment process is:
+1. Running constructor tests (from `test/constructor`)
+2. Deploying the stack
+3. Running deployment validation tests (from `test/deployment`)
