@@ -6,3 +6,5 @@ parent: Testing types
 ---
 
 # Manual testing
+
+{% include wip.md %}

@@ -5,3 +5,5 @@ parent: AWS Services
 ---
 
 # EC2
+
+{% include wip.md %}
