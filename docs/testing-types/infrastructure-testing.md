@@ -363,7 +363,7 @@ describe('StaticSite Functional Validation', () => {
   });
 
   test('CloudFront distribution has valid response', async () => {
-    const response = await axios.get(websiteUrl);s
+    const response = await axios.get(websiteUrl);
 
     expect(response.status).toBe(200);
     expect(response.data).toContain('Static Site');
