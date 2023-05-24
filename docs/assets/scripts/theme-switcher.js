@@ -22,7 +22,7 @@
             toggleTheme(jtd.getTheme());
         });
 
-        setTheme(sst.getItem(SST_KEY) || jtd.getTheme());
+        setTheme(sst.getItem(SST_KEY) || jtd.getTheme() || 'dark');
     }
 
     jtd.onReady(initThemeSwitcher);
