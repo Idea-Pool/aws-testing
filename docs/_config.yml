@@ -8,30 +8,33 @@ description: This is a guide on testing AWS services and in general about testin
 # the base URL/domain
 url: https://aws-testing.ideapool.community
 
+content:
+  samples: https://github.com/Idea-Pool/aws-testing/tree/main/samples
+
 permalink: pretty
 
 exclude:
- # from https://github.com/jekyll/jekyll/blob/master/lib/site_template/_config.yml:
-   - .sass-cache/
-   - .jekyll-cache/
-   - gemfiles/
-   - Gemfile
-   - Gemfile.lock
-   - node_modules/
-   - vendor/bundle/
-   - vendor/cache/
-   - vendor/gems/
-   - vendor/ruby/
- # specific to the theme website:
-   - bin/
-   - lib/
-   - "*.gemspec"
-   - "*.gem"
-   - LICENSE
-   - package.json
-   - package-lock.json
-   - Rakefile
-   - README.md
+  # from https://github.com/jekyll/jekyll/blob/master/lib/site_template/_config.yml:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  # specific to the theme website:
+  - bin/
+  - lib/
+  - "*.gemspec"
+  - "*.gem"
+  - LICENSE
+  - package.json
+  - package-lock.json
+  - Rakefile
+  - README.md
 
 # these are the information boxes can be used in the documents
 # e.g.
@@ -58,11 +61,11 @@ callouts:
   questions:
     title: Assess Your Understanding
     color: green
-    
+
 back_to_top: true
 back_to_top_text: Back to top
 
-footer_content: Copyright &copy; 2022- Idea Pool Community. 
+footer_content: Copyright &copy; 2022- Idea Pool Community.
   Distributed by an <a href="https://github.com/idea-pool/aws-testing/tree/main/LICENSE" target="_blank">MIT license.</a>
   Idea Pool <a href="https://github.com/idea-pool" target="_blank">@GitHub</a>,
   <a href="http://ideapool.community" target="_blank">@WeAreCommunity</a>.
@@ -110,3 +113,12 @@ color_scheme: nil
 
 ga_tracking: GTM-MN2TZZV
 ga_tracking_anonymize_ip: true
+
+compress_html:
+  ignore:
+    envs: all
+
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
