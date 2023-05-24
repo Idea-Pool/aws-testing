@@ -110,8 +110,6 @@ gh_edit_repository: https://github.com/Idea-Pool/aws-testing
 gh_edit_branch: main
 gh_edit_view_mode: tree
 
-color_scheme: nil
-
 ga_tracking: GTM-MN2TZZV
 ga_tracking_anonymize_ip: true
 
