@@ -2,11 +2,12 @@
     const ICONS = {
         'light': '<i class="fa-solid fa-sun">&nbsp;</i>',
         'dark': '<i class="fa-solid fa-moon">&nbsp;</i>',
-        'default': '<i class="fa-solid fa-moon">&nbsp;</i>',
     };
     // update version if major change is added to theme logic
     const SST_KEY = 'jtd-theme-v1';
     const DEFAULT_THEME = 'dark';
+
+    ICONS.default = ICONS[DEFAULT_THEME];
 
     const THEME_A = 'default';
     const THEME_B = DEFAULT_THEME === 'dark' ? 'light' : 'dark';
