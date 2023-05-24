@@ -22,7 +22,7 @@ CloudFormation is a powerful Infrastructure-as-Code (IaC) service offered by AWS
 
 As an IaC tool, CloudFormation enables you to treat infrastructure as version-controlled code, bringing the benefits of reproducibility, scalability, and automation to your deployments. Its main features include a **JSON** or **YAML**-based template syntax, which describes the desired state of your infrastructure, automatic resource dependency management, and the ability to create, update, and delete stacks of resources as a single unit.
 
-Take as example, one of our sample stack, the [static-site]({{ site.content.samples }}/static-site).
+Take as example, one of our sample stack, the [static-site]({{ site.content.samples }}/static-site){:target="_blank"}.
 
 The CloudFormation template (JSON) for the sample stack looks like the following:
 
@@ -115,7 +115,7 @@ AWS CDK (Cloud Development Kit) is another powerful Infrastructure-as-Code (IaC)
 
 Unlike CloudFormation, CDK allows you to define your infrastructure using familiar programming languages such as TypeScript, Python, Java, and more. This gives you the flexibility to leverage the expressiveness and modularity of programming languages while provisioning AWS resources. CDK simplifies the process of infrastructure provisioning by providing a higher-level object-oriented abstraction, enabling you to define and manage your infrastructure using constructs and stacks.
 
-Here's the AWS CDK template of the sample stack used ([lib/static-site-stack.ts]({{ site.content.samples }}/static-site/lib/static-site-stack.ts)):
+Here's the AWS CDK template of the sample stack used ([lib/static-site-stack.ts]({{ site.content.samples }}/static-site/lib/static-site-stack.ts){:target="_blank"}):
 
 ```typescript
 // note, this is only a part of the CDK stack
@@ -216,9 +216,9 @@ Constructor testing has two main approaches:
 In our sample stacks, we will mostly implement fine-grained assertions for our CDK stack.
 
 {: .more }
-You can visit the [Testing constructs](https://docs.aws.amazon.com/cdk/v2/guide/testing.html) page of AWS to learn more about the practices of the constructor testing.
+You can visit the [Testing constructs](https://docs.aws.amazon.com/cdk/v2/guide/testing.html){:target="_blank"} page of AWS to learn more about the practices of the constructor testing.
 
-In short, for our previous example the constructor testing suite is the following ([test/constructor/static-site.test.ts]({{ site.content.samples }}/static-site/test/constructor/static-site.test.ts)), using [aws-cdk-assert](https://github.com/Idea-Pool/aws-cdk-assert):
+In short, for our previous example the constructor testing suite is the following ([test/constructor/static-site.test.ts]({{ site.content.samples }}/static-site/test/constructor/static-site.test.ts){:target="_blank"}), using [aws-cdk-assert](https://github.com/Idea-Pool/aws-cdk-assert){:target="_blank"}:
 
 ```typescript
 import * as cdk from 'aws-cdk-lib';
@@ -294,13 +294,13 @@ In this suite, we test:
 
 Dynamic testing focuses on the actual deployment of infrastructure resources and ensures their proper functioning.
 
-Deployment validation is a core part of dynamic testing, which verifies that the infrastructure components are provisioned correctly and interact as expected.
+**Deployment validation** is a core part of dynamic testing, which verifies that the infrastructure components are provisioned correctly and interact as expected.
 
 During deployment validation, you should test various aspects such as resource creation, modification, and deletion, as well as network connectivity, security configurations, and performance metrics.
 
 Dynamic testing can be performed manually by following predefined test scripts and conducting exploratory testing. To achieve higher efficiency and scalability, it is advisable to automate dynamic testing using custom scripts leveraging AWS SDKs.
 
-For our previous example the deployment validation suite is the following ([test/deployment/static-site.test.ts]({{ site.content.samples }}/static-site/test/deployment/static-site.test.ts)), using Jest and AWS SDK:
+For our previous example the **deployment validation** suite is the following ([test/deployment/static-site.test.ts]({{ site.content.samples }}/static-site/test/deployment/static-site.test.ts){:target="_blank"}), using **Jest** and **AWS SDK**:
 
 ```typescript
 import { CloudFrontClient, GetDistributionCommand } from '@aws-sdk/client-cloudfront';
@@ -349,7 +349,7 @@ In this suite, we test:
 3. if the error.html file is deployed to the bucket
 4. if the distribution is deployed
 
-Further functional tests are also implemented, to check if we can access the content of the site and it handles errors properly ([test/deployment/static-site.test.ts]({{ site.content.samples }}/static-site/test/deployment/static-site.test.ts)), using Jest and Axios:
+Further **functional tests** are also implemented, to check if we can access the content of the site and it handles errors properly ([test/deployment/static-site.test.ts]({{ site.content.samples }}/static-site/test/deployment/static-site.test.ts){:target="_blank"}), using **Jest** and **Axios**:
 
 ```typescript
 import { getStackOutput } from '../utils/stack';
