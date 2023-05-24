@@ -48,7 +48,14 @@ describe('StaticSite Constructor Validation', () => {
                             'RegionalDomainName',
                         )
                     }),
-                ]
+                ],
+                CustomErrorResponses: [
+                    Match.objectLike({
+                        ErrorCode: 403,
+                        ResponseCode: 403,
+                        ResponsePagePath: "/error.html"
+                    })
+                ],
             })
             .exists();
     })

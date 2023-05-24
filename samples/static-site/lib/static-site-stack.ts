@@ -26,7 +26,7 @@ export class StaticSiteStack extends cdk.Stack {
       principals: [new iam.CanonicalUserPrincipal(cloudfrontOAI.cloudFrontOriginAccessIdentityS3CanonicalUserId)]
     }));
 
-    const deployment = new s3Deployment.BucketDeployment(this, 'WebsiteDeployment', {
+    new s3Deployment.BucketDeployment(this, 'WebsiteDeployment', {
       sources: [
         s3Deployment.Source.asset(path.join(__dirname, '..', 'site')),
       ],
@@ -42,11 +42,29 @@ export class StaticSiteStack extends cdk.Stack {
         allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       },
+      errorResponses: [
+        {
+          httpStatus: 403,
+          responseHttpStatus: 403,
+          responsePagePath: '/error.html',
+          ttl: cdk.Duration.minutes(30),
+        }
+      ],
+    });
+
+    new cdk.CfnOutput(this, 'BucketName', {
+      value: bucket.bucketName,
+      description: 'The name of the S3 Bucket'
+    });
+
+    new cdk.CfnOutput(this, 'DistributionId', {
+      value: distribution.distributionId,
+      description: 'The ID of the CloudFront distribution'
     });
 
     new cdk.CfnOutput(this, 'WebsiteUrl', {
-      value: `https://${distribution.domainName}/index.html`,
-      description: 'The URL of the site'
+      value: `https://${distribution.domainName}`,
+      description: 'The URL of the CloudFront distribution'
     });
   }
 }

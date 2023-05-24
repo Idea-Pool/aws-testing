@@ -6,9 +6,12 @@
   },
   "scripts": {
     "build": "tsc",
-    "deploy": "cdk deploy",
-    "predeploy": "jest test/constructor",
-    "postdeploy": "jest test/deployment"
+    "test:constructor": "jest test/constructor",
+    "test:deployment": "jest test/deployment",
+    "test:functional": "jest test/functional",
+    "deploy": "dotenv-ng --var AWS_SDK_LOAD_CONFIG=1 --- cdk deploy",
+    "predeploy": "npm run test:constructor",
+    "postdeploy": "npm run test:deployment && npm run test:functional"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",
@@ -21,8 +24,13 @@
     "typescript": "~5.0.4"
   },
   "dependencies": {
+    "@aws-sdk/client-cloudformation": "^3.338.0",
+    "@aws-sdk/client-cloudfront": "^3.338.0",
+    "@aws-sdk/client-s3": "^3.338.0",
     "aws-cdk-lib": "2.79.1",
+    "axios": "^1.4.0",
     "constructs": "^10.0.0",
+    "dotenv-ng": "^1.1.4",
     "source-map-support": "^0.5.21"
   }
 }

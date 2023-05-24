@@ -20,3 +20,4 @@ The deployment process is:
 1. Running constructor tests (from `test/constructor`)
 2. Deploying the stack
 3. Running deployment validation tests (from `test/deployment`)
+4. Running functional tests (from `test/functional`)

@@ -22,39 +22,103 @@ CloudFormation is a powerful Infrastructure-as-Code (IaC) service offered by AWS
 
 As an IaC tool, CloudFormation enables you to treat infrastructure as version-controlled code, bringing the benefits of reproducibility, scalability, and automation to your deployments. Its main features include a **JSON** or **YAML**-based template syntax, which describes the desired state of your infrastructure, automatic resource dependency management, and the ability to create, update, and delete stacks of resources as a single unit.
 
-For example, consider an [AWS S3 website with CloudFront Distribution](https://github.com/awslabs/aws-cloudformation-templates/blob/master/aws/services/S3/S3_Website_With_CloudFront_Distribution.yaml) template (partial):
+Take as example, one of our sample stack, the [static-site]({{ site.content.samples }}/static-site).
 
-```yaml
-# ...
-Resources:
-  S3BucketForWebsiteContent:
-    Type: AWS::S3::Bucket
-    Properties:
-      AccessControl: PublicRead
-      WebsiteConfiguration:
-        IndexDocument: index.html
-        ErrorDocument: error.html
-  WebsiteCDN:
-    Type: AWS::CloudFront::Distribution
-    # ...
-  WebsiteDNSName:
-    Type: AWS::Route53::RecordSet
-    # ...
-Outputs:
-  WebsiteURL:
-    Value: !Join ['', ['http://', !Ref 'WebsiteDNSName']]
-    Description: The URL of the newly created website
-  BucketName:
-    Value: !Ref 'S3BucketForWebsiteContent'
-    Description: Name of S3 bucket to hold website content
+The CloudFormation template (JSON) for the sample stack looks like the following:
+
+```json
+// note, this is only a part of the synthetized JSON template
+// and as it is now, not a valid JSON file, because of the comments
+{
+  "Resources": {
+    "WebsiteBucket75C24D94": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
+        },
+        // ...
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      // ...
+    },
+    "WebsiteBucketPolicyE10E3262": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "WebsiteBucket75C24D94"
+        },
+        "PolicyDocument": {
+          // ...
+        }
+      },
+      // ...
+    },
+    "WebsiteDistribution75DCDA0B": {
+      "Type": "AWS::CloudFront::Distribution",
+      "Properties": {
+        "DistributionConfig": {
+          "CustomErrorResponses": [
+            {
+              "ErrorCachingMinTTL": 1800,
+              "ErrorCode": 403,
+              "ResponseCode": 403,
+              "ResponsePagePath": "/error.html"
+            }
+          ],
+          "DefaultRootObject": "index.html",
+          "Origins": [
+            {
+              "DomainName": {
+                "Fn::GetAtt": [
+                  "WebsiteBucket75C24D94",
+                  "RegionalDomainName"
+                ]
+              },
+              "Id": "StaticSiteStackWebsiteDistributionOrigin1EFF81211",
+              // ...
+            }
+          ],
+          // ...
+        }
+      },
+      // ...
+    },
+    // ...
+  },
+  "Outputs": {
+    "BucketName": {
+      "Description": "The name of the S3 Bucket",
+      "Value": {
+        "Ref": "WebsiteBucket75C24D94"
+      }
+    },
+    "DistributionId": {
+      "Description": "The ID of the CloudFront distribution",
+      "Value": {
+        "Ref": "WebsiteDistribution75DCDA0B"
+      }
+    },
+    "WebsiteUrl": {
+      "Description": "The URL of the CloudFront distribution",
+      "Value": {
+        // ...
+      }
+    }
+  },
+  // ...
+}
 ```
 
 In this example, the template defines
 * an **S3 Bucket** for storage and hosting the static website, 
-* a **CloudFront Distribution** to deliver the content of the website with low latency and high performance, and 
-* a **Route53 RecordSet** to serve the website on a custom domain.
+* a **CloudFront Distribution** to deliver the content of the website with low latency and high performance.
 
-With CloudFormation, you can deploy this template, and AWS will automatically create the bucket, the distribution, and the DNS record with the specified configurations. You can also update the template and redeploy it, allowing for infrastructure changes to be managed in a controlled and consistent manner. 
+With CloudFormation, you can deploy this template, and AWS will automatically create the bucket, and the distribution with the specified configurations. You can also update the template and redeploy it, allowing for infrastructure changes to be managed in a controlled and consistent manner. 
 
 ### AWS CDK
 
@@ -62,56 +126,78 @@ AWS CDK (Cloud Development Kit) is another powerful Infrastructure-as-Code (IaC)
 
 Unlike CloudFormation, CDK allows you to define your infrastructure using familiar programming languages such as TypeScript, Python, Java, and more. This gives you the flexibility to leverage the expressiveness and modularity of programming languages while provisioning AWS resources. CDK simplifies the process of infrastructure provisioning by providing a higher-level object-oriented abstraction, enabling you to define and manage your infrastructure using constructs and stacks.
 
-Here's the AWS CDK version of the previous CloudFormation example (partial):
+Here's the AWS CDK template of the sample stack used ([lib/static-site-stack.ts]({{ site.content.samples }}/static-site/lib/static-site-stack.ts)):
 
 ```typescript
+// note, this is only a part of the CDK stack
+import * as path from 'path';
 import * as cdk from 'aws-cdk-lib';
+import { Construct } from 'constructs';
 import * as s3 from 'aws-cdk-lib/aws-s3';
+import * as iam from 'aws-cdk-lib/aws-iam';
+import * as s3Deployment from 'aws-cdk-lib/aws-s3-deployment';
 import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
-import * as route53 from 'aws-cdk-lib/aws-route53';
+import * as cloudfrontOrigin from 'aws-cdk-lib/aws-cloudfront-origins';
 
-export class S3WebsiteWithCloudFrontStack extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+export class StaticSiteStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const hostedZoneName = this.node.tryGetContext('hostedZoneName');
-
-    const s3BucketForWebsiteContent = new s3.Bucket(this, 'S3BucketForWebsiteContent', {
-      accessControl: s3.BucketAccessControl.PUBLIC_READ,
-      websiteIndexDocument: 'index.html',
-      websiteErrorDocument: 'error.html',
+    const bucket = new s3.Bucket(this, 'WebsiteBucket', {
+      publicReadAccess: false,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
     });
 
-    const websiteCDN = new cloudfront.Distribution(this, 'WebsiteCDN', {
-      comment: 'CDN for S3-backed website',
-      defaultBehavior: {
-        origin: new cloudfront.S3Origin(s3BucketForWebsiteContent),
+    // ...
+
+    new s3Deployment.BucketDeployment(this, 'WebsiteDeployment', {
+      sources: [
+        s3Deployment.Source.asset(path.join(__dirname, '..', 'site')),
+      ],
+      destinationBucket: bucket,
+    });
+
+    const distribution = new cloudfront.Distribution(this, 'WebsiteDistribution', {
+      defaultRootObject: 'index.html',
+      defaultBehavior:{
+        origin: new cloudfrontOrigin.S3Origin(bucket, {
+          originAccessIdentity: cloudfrontOAI,
+        }),
+        allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       },
-      // ...
-    });
-
-    const websiteDNSName = new route53.CnameRecord(this, 'WebsiteDNSName', {
-      zone: route53.HostedZone.fromLookup(this, 'HostedZone', { domainName: hostedZoneName }),
-      recordName: `${this.stackName}.${this.account}.${this.region}.${hostedZoneName}`,
-      domainName: websiteCDN.distributionDomainName,
-      ttl: cdk.Duration.seconds(900),
-    });
-
-    new cdk.CfnOutput(this, 'WebsiteURL', {
-      value: `http://${websiteDNSName.domainName}`,
-      description: 'The URL of the newly created website',
+      errorResponses: [
+        {
+          httpStatus: 403,
+          responseHttpStatus: 403,
+          responsePagePath: '/error.html',
+          ttl: cdk.Duration.minutes(30),
+        }
+      ],
     });
 
     new cdk.CfnOutput(this, 'BucketName', {
-      value: s3BucketForWebsiteContent.bucketName,
-      description: 'Name of S3 bucket to hold website content',
+      value: bucket.bucketName,
+      description: 'The name of the S3 Bucket'
+    });
+
+    new cdk.CfnOutput(this, 'DistributionId', {
+      value: distribution.distributionId,
+      description: 'The ID of the CloudFront distribution'
+    });
+
+    new cdk.CfnOutput(this, 'WebsiteUrl', {
+      value: `https://${distribution.domainName}`,
+      description: 'The URL of the CloudFront distribution'
     });
   }
 }
+
 ```
 
-By synthesizing and deploying this AWS CDK code, AWS will provision the specified bucket, distribution, and DNS record with the defined configurations.
+By synthesizing and deploying this AWS CDK code, AWS will provision the specified bucket and distributionwith the defined configurations.
 
 This is where the integration with CloudFormation comes into the picture. AWS CDK internally generates a CloudFormation template based on the CDK code. The synthesized CloudFormation template represents the desired state of the infrastructure defined in CDK.
 
@@ -143,90 +229,70 @@ In our sample stacks, we will mostly implement fine-grained assertions for our C
 {: .more }
 You can visit the [Testing constructs](https://docs.aws.amazon.com/cdk/v2/guide/testing.html) page of AWS to learn more about the practices of the constructor testing.
 
-In short, for our previous example a test suite would like the following:
+In short, for our previous example the constructor testing suite is the following ([test/constructor/static-site.test.ts]({{ site.content.samples }}/static-site/test/constructor/static-site.test.ts)), using [aws-cdk-assert](https://github.com/Idea-Pool/aws-cdk-assert):
 
 ```typescript
-import { expect as cdkExpect, haveResource, Match } from 'aws-cdk-lib/assertions';
 import * as cdk from 'aws-cdk-lib';
-import { S3WebsiteWithCloudFrontStack } from './S3WebsiteWithCloudFrontStack';
+import { Match } from 'aws-cdk-lib/assertions';
+import { AdvancedMatcher, AdvancedTemplate, S3Bucket } from 'aws-cdk-assert';
+import { StaticSiteStack } from '../../lib/static-site-stack';
 
-describe('S3 Website with CloudFront', () => {
-  let stack: S3WebsiteWithCloudFrontStack;
+describe('StaticSite Constructor Validation', () => {
+  let template: AdvancedTemplate;
+  let bucket: S3Bucket;
 
   beforeEach(() => {
     const app = new cdk.App();
-    const stack = new S3WebsiteWithCloudFrontStack(app, 'TestStack');
+    const stack = new StaticSiteStack(app, 'TestStack');
+    template = AdvancedTemplate.fromStack(stack);
+    bucket = template.s3Bucket();
   });
 
-  test('S3 bucket is created with public read access control', () => {
-    cdkExpect(stack).to(haveResource('AWS::S3::Bucket', {
-      AccessControl: 'PublicRead',
-    }));
+  test('S3 Bucket is created', () => {
+    bucket
+      .withRemovalPolicy(cdk.RemovalPolicy.DESTROY)
+      .exists();
   });
 
-  test('CloudFront distribution is created with the bucket origin', () => {
-    cdkExpect(stack).to(haveResource('AWS::CloudFront::Distribution', {
-      DistributionConfig: {
+  test('Propoer BucketPolicy is created', () => {
+    template.s3BucketPolicy()
+      .forBucket(bucket)
+      .withProperty('PolicyDocument', {
+        Statement: Match.arrayWith([
+          Match.objectLike({
+            Action: 's3:GetObject',
+            Effect: 'Allow',
+            Principal: { CanonicalUser: Match.anyValue() },
+            Resource: AdvancedMatcher.fnJoin(Match.arrayWith([
+              bucket.arn,
+            ]))
+          })
+        ])
+      })
+      .exists();
+  });
+
+  test('CloudFront Distribution is created', () => {
+    template.cloudFrontDistribution()
+      .withProperty('DistributionConfig', {
         Origins: [
           Match.objectLike({
-            DomainName: stack.resolve(stack.s3BucketForWebsiteContent.websiteUrl),
+            DomainName: AdvancedMatcher.fnGetAtt(
+              bucket.id,
+              'RegionalDomainName',
+            )
+          }),
+        ],
+        CustomErrorResponses: [
+          Match.objectLike({
+            ErrorCode: 403,
+            ResponseCode: 403,
+            ResponsePagePath: "/error.html"
           })
         ],
-      },
-    }));
-  });
-
-  test('Route 53 CNAME record is created with the expected properties', () => {
-    cdkExpect(stack).to(haveResource('AWS::Route53::RecordSet', {
-      Type: 'CNAME',
-      TTL: '900',
-      ResourceRecords: [
-        stack.resolve(stack.websiteCDN.distributionDomainName),
-      ],
-    }));
-  });
-});
-```
-
-Or by using [aws-cdk-assert](https://github.com/Idea-Pool/aws-cdk-assert):
-
-```typescript
-import * as cdk from 'aws-cdk-lib';
-import { S3WebsiteWithCloudFrontStack } from './S3WebsiteWithCloudFrontStack';
-import { AdvancedTemplate } from 'aws-cdk-assert';
-import { RecordType } from "aws-cdk-lib/aws-route53";
-
-describe('S3 Website with CloudFront', () => {
-  let template: AdvancedTemplate;
-
-  beforeAll(() => {
-    const app = new cdk.App();
-    const stack = new S3WebsiteWithCloudFrontStack(app, 'TestStack');
-    template = AdvancedTemplate.fromStack(stack);
-  });
-
-
-  test('S3 bucket is created with public read access control', () => {
-    template
-      .s3Bucket()
-      .withProperty('AccessControl', 'PublicRead')
+      })
       .exists();
-  });
-
-  test('CloudFront distribution is created with the bucket origin', () => {
-    template
-      .cloudFrontDistribution()
-      .withPublicS3BucketOrigin(template.s3Bucket())
-      .exists();
-  });
-
-  test('Route 53 CNAME record is created with the expected properties', () => {
-     template
-      .route53RecordSet()
-      .withRecordType(RecordType.CNAME)
-      .withAliasToS3()
-      .exists();
-  });
+  })
 });
 ```
 
@@ -240,60 +306,45 @@ During deployment validation, you should test various aspects such as resource c
 
 Dynamic testing can be performed manually by following predefined test scripts and conducting exploratory testing. To achieve higher efficiency and scalability, it is advisable to automate dynamic testing using custom scripts leveraging AWS SDKs.
 
-An example test suite for the example stack could be the following (using TypeScript, Jest, and AWS SDK):
+For our previous example the deployment validation suite is the following ([test/deployment/static-site.test.ts]({{ site.content.samples }}/static-site/test/deployment/static-site.test.ts)), using Jest and AWS SDK:
 
 ```typescript
-import AWS from 'aws-sdk';
+import { CloudFrontClient, GetDistributionCommand } from '@aws-sdk/client-cloudfront';
+import { S3Client, ListObjectsV2Command, ListObjectsV2CommandOutput } from '@aws-sdk/client-s3';
+import { getStackOutput } from '../utils/stack';
 
-const awsRegion = process.env.AWS_REGION;
-const stackName = process.env.STACK_NAME;
-const hostedZoneName = process.env.HOSTED_ZONE_NAME;
 
-describe('S3 Website with CloudFront', () => {
-  test('S3 bucket is created and accessible', async () => {
-    const s3BucketName = await getStackOutput(stackName, 'BucketName');
+describe('StaticSite Deployment Validation', () => {
+  describe('S3 Bucket', () => {
+    let objects: ListObjectsV2CommandOutput;
 
-    const s3 = new AWS.S3({ region: awsRegion });
-    const listObjectsResponse = await s3.listObjectsV2({ Bucket: s3BucketName }).promise();
+    beforeAll(async () => {
+      const bucketName = await getStackOutput('BucketName');
+  
+      const s3Client = new S3Client({});
+      objects = await s3Client.send(new ListObjectsV2Command({ Bucket: bucketName }));
+    });
 
-    expect(listObjectsResponse.Contents).toBeDefined();
+    test('deployed and accessible', () => {
+      expect(objects.Contents).not.toHaveLength(0);
+    });
+
+    test('has index.html deployed', () => {
+      expect(objects.Contents).toEqual(expect.arrayContaining([expect.objectContaining({Key: 'index.html'})]));
+    });
+
+    test('has error.html deployed', () => {
+      expect(objects.Contents).toEqual(expect.arrayContaining([expect.objectContaining({Key: 'error.html'})]));
+    });
   });
 
-  test('CloudFront distribution is deployed and returns a valid response', async () => {
-    const distributionDomainName = await getStackOutput(stackName, 'WebsiteURL');
+  test('CloudFront distribution is deployed', async () => {
+    const distributionId = await getStackOutput('DistributionId');
 
-    const cloudFront = new AWS.CloudFront();
-    const getDistributionResponse = 
-      await cloudFront.getDistribution({ Id: distributionDomainName }).promise();
+    const cloudFrontClient = new CloudFrontClient({});
+    const distribution = await cloudFrontClient.send(new GetDistributionCommand({ Id: distributionId }));
 
-    expect(getDistributionResponse.Distribution).toBeDefined();
-  });
-
-  test('Route 53 record set is created with the correct domain name', async () => {
-    const recordSetName = await getStackOutput(stackName, 'WebsiteURL');
-
-    const route53 = new AWS.Route53();
-    const zone = await route53.listHostedZonesByName({ DNSName: hostedZoneName }).promise();
-    const listResourceRecordSetsResponse = await route53.listResourceRecordSets({
-      HostedZoneId: zone.HostedZones[0].Id,
-    }).promise();
-
-    const recordSet = listResourceRecordSetsResponse.ResourceRecordSets?.find(
-      (rs: any) => rs.Name === `${recordSetName}.${hostedZoneName}.`
-    );
-
-    expect(recordSet).toBeDefined();
+    expect(distribution.Distribution).toBeDefined();
   });
 });
-
-async function getStackOutput(stackName: string, outputKey: string): Promise<string> {
-  const cloudFormation = new AWS.CloudFormation({ region: awsRegion });
-  const describeStacksResponse = 
-    await cloudFormation.describeStacks({ StackName: stackName }).promise();
-
-  const stack = describeStacksResponse.Stacks?.[0];
-  const output = stack?.Outputs?.find((o: any) => o.OutputKey === outputKey);
-
-  return output?.OutputValue;
-}
 ```
