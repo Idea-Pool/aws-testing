@@ -12,8 +12,9 @@
         function setTheme(theme) {
             if (theme === 'default') {
                 theme = DEFAULT_THEME;
+            } else {
+                jtd.setTheme(theme);
             }
-            jtd.setTheme(theme);
             sst.setItem(SST_KEY, theme);
             toggleDarkMode.innerHTML = ICONS[theme];
         }
