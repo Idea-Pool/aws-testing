@@ -101,7 +101,7 @@ The CloudFormation template (JSON) for the sample stack looks like the following
 ```
 
 {: .note }
-Note, that this is only a part of the synthetized JSON template and as it is now, not a valid and deployable CF JSON template.
+Note, that this CF JSON template is synthetized by aws-cdk, and it is only a part of the synthetized JSON template and as it is now, not a valid and deployable CF JSON template by itself.
 
 In this example, the template defines
 * an **S3 Bucket** for storage and hosting the static website, 
@@ -114,6 +114,10 @@ With CloudFormation, you can deploy this template, and AWS will automatically cr
 AWS CDK (Cloud Development Kit) is another powerful Infrastructure-as-Code (IaC) tool provided by AWS.
 
 Unlike CloudFormation, CDK allows you to define your infrastructure using familiar programming languages such as TypeScript, Python, Java, and more. This gives you the flexibility to leverage the expressiveness and modularity of programming languages while provisioning AWS resources. CDK simplifies the process of infrastructure provisioning by providing a higher-level object-oriented abstraction, enabling you to define and manage your infrastructure using constructs and stacks.
+
+This is where the integration with CloudFormation comes into the picture. AWS CDK internally generates a CloudFormation template based on the CDK code. The synthesized CloudFormation template represents the desired state of the infrastructure defined in CDK.
+
+When the CDK code is deployed, AWS CloudFormation uses the synthesized template to create and manage the AWS resources accordingly. CloudFormation takes care of resource provisioning, dependency management, and handles the orchestration of the deployment process. This ensures that the infrastructure defined using AWS CDK is accurately translated into the appropriate AWS resource configurations.
 
 Here's the AWS CDK template of the sample stack used ([lib/static-site-stack.ts]({{ site.content.samples }}/static-site/lib/static-site-stack.ts){:target="_blank"}):
 
@@ -186,11 +190,7 @@ export class StaticSiteStack extends cdk.Stack {
 
 ```
 
-By synthesizing and deploying this AWS CDK code, AWS will provision the specified bucket and distributionwith the defined configurations.
-
-This is where the integration with CloudFormation comes into the picture. AWS CDK internally generates a CloudFormation template based on the CDK code. The synthesized CloudFormation template represents the desired state of the infrastructure defined in CDK.
-
-When the CDK code is deployed, AWS CloudFormation uses the synthesized template to create and manage the AWS resources accordingly. CloudFormation takes care of resource provisioning, dependency management, and handles the orchestration of the deployment process. This ensures that the infrastructure defined using AWS CDK is accurately translated into the appropriate AWS resource configurations.
+By synthesizing and deploying this AWS CDK code, AWS will provision the specified bucket and distribution with the defined configurations.
 
 {: .important }
 In the pages of this documentation, we will use AWS CDK to define the infrastructure of the sample stack.
