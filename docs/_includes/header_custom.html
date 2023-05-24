@@ -1,17 +1,18 @@
-<i class="btn js-toggle-dark-mode fa-solid fa-sun">&nbsp;</i>
+<i class="js-toggle-dark-mode fa-solid fa-sun">&nbsp;</i>
 
 <script>
-const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+    const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
 
-jtd.addEvent(toggleDarkMode, 'click', function(){
-  if (jtd.getTheme() === 'dark') {
-    jtd.setTheme('light');
-    toggleDarkMode.classList.remove('fa-sun');
-    toggleDarkMode.classList.add('fa-moon');
-  } else {
-    jtd.setTheme('dark');
-    toggleDarkMode.classList.remove('fa-moon');
-    toggleDarkMode.classList.add('fa-sun');
-  }
-});
+    jtd.addEvent(toggleDarkMode, 'click', function () {
+        console.log('CLICK', jtd.getTheme());
+        if (jtd.getTheme() === 'dark') {
+            jtd.setTheme('light');
+            toggleDarkMode.classList.remove('fa-sun');
+            toggleDarkMode.classList.add('fa-moon');
+        } else {
+            jtd.setTheme('dark');
+            toggleDarkMode.classList.remove('fa-moon');
+            toggleDarkMode.classList.add('fa-sun');
+        }
+    });
 </script>
