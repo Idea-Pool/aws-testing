@@ -27,8 +27,6 @@ Take as example, one of our sample stack, the [static-site]({{ site.content.samp
 The CloudFormation template (JSON) for the sample stack looks like the following:
 
 ```json
-// note, this is only a part of the synthetized JSON template
-// and as it is now, not a valid JSON file, because of the comments
 {
   "Resources": {
     "WebsiteBucket75C24D94": {
@@ -39,12 +37,10 @@ The CloudFormation template (JSON) for the sample stack looks like the following
           "BlockPublicPolicy": true,
           "IgnorePublicAcls": true,
           "RestrictPublicBuckets": true
-        },
-        // ...
+        }
       },
       "UpdateReplacePolicy": "Delete",
-      "DeletionPolicy": "Delete",
-      // ...
+      "DeletionPolicy": "Delete"
     },
     "WebsiteBucketPolicyE10E3262": {
       "Type": "AWS::S3::BucketPolicy",
@@ -52,11 +48,8 @@ The CloudFormation template (JSON) for the sample stack looks like the following
         "Bucket": {
           "Ref": "WebsiteBucket75C24D94"
         },
-        "PolicyDocument": {
-          // ...
-        }
-      },
-      // ...
+        "PolicyDocument": {}
+      }
     },
     "WebsiteDistribution75DCDA0B": {
       "Type": "AWS::CloudFront::Distribution",
@@ -79,16 +72,12 @@ The CloudFormation template (JSON) for the sample stack looks like the following
                   "RegionalDomainName"
                 ]
               },
-              "Id": "StaticSiteStackWebsiteDistributionOrigin1EFF81211",
-              // ...
+              "Id": "StaticSiteStackWebsiteDistributionOrigin1EFF81211"
             }
-          ],
-          // ...
+          ]
         }
-      },
-      // ...
-    },
-    // ...
+      }
+    }
   },
   "Outputs": {
     "BucketName": {
@@ -105,14 +94,14 @@ The CloudFormation template (JSON) for the sample stack looks like the following
     },
     "WebsiteUrl": {
       "Description": "The URL of the CloudFront distribution",
-      "Value": {
-        // ...
-      }
+      "Value": {}
     }
-  },
-  // ...
+  }
 }
 ```
+
+{: .note }
+Note, that this is only a part of the synthetized JSON template and as it is now, not a valid and deployable CF JSON template.
 
 In this example, the template defines
 * an **S3 Bucket** for storage and hosting the static website, 
@@ -296,6 +285,11 @@ describe('StaticSite Constructor Validation', () => {
 });
 ```
 
+In this suite, we test:
+1. if there is a resource for the S3 bucket
+2. if there is a resource for the S3 bucket policy, that sets proper policy statement to access the bucket from CloudFront
+3. if there is a resource for the CloudFront distribution, that has proper origin for the bucket, and has proper error response set up
+
 ### Dynamic Testing
 
 Dynamic testing focuses on the actual deployment of infrastructure resources and ensures their proper functioning.
@@ -348,3 +342,44 @@ describe('StaticSite Deployment Validation', () => {
   });
 });
 ```
+
+In this suite, we test:
+1. if we have access to the bucket, by listing its objects
+2. if the index.html file is deployed to the bucket
+3. if the error.html file is deployed to the bucket
+4. if the distribution is deployed
+
+Further functional tests are also implemented, to check if we can access the content of the site and it handles errors properly ([test/deployment/static-site.test.ts]({{ site.content.samples }}/static-site/test/deployment/static-site.test.ts)), using Jest and Axios:
+
+```typescript
+import { getStackOutput } from '../utils/stack';
+import axios, { AxiosError } from 'axios';
+
+describe('StaticSite Functional Validation', () => {
+  let websiteUrl: string;
+
+  beforeAll(async () => {
+    websiteUrl = await getStackOutput('WebsiteUrl');
+  });
+
+  test('CloudFront distribution has valid response', async () => {
+    const response = await axios.get(websiteUrl);s
+
+    expect(response.status).toBe(200);
+    expect(response.data).toContain('Static Site');
+  });
+  
+  test('CloudFront distribution has error response', async () => {
+    try {
+      await axios.get(`${websiteUrl}/no-page.html`);
+      fail();
+    } catch (e) {
+      const response = (e as AxiosError).response!;
+      expect(response.status).toBe(403);
+      expect(response.data).toContain('Static Site');
+    }
+  });
+});
+```
+
+These tests can be considered as part of either the deployment validation or a functional suite.
