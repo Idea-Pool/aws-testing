@@ -4,6 +4,8 @@ This is a sample project for hosting a simple static website in AWS.
 
 ## Deployment
 
+As a prerequisite, ensure AWS CLI is installed and configured (see [AWS CLI Getting Started](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html) for instructions).
+
 To deploy the stack, run the following command:
 
 ```commandline
