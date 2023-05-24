@@ -1,7 +1,7 @@
 (function (jtd, sst) {
     const ICONS = {
-        'light': '<i class="fa-solid fa-moon">&nbsp;</i>',
-        'dark': '<i class="fa-solid fa-sun">&nbsp;</i>',
+        'light': '<i class="fa-solid fa-sun">&nbsp;</i>',
+        'dark': '<i class="fa-solid fa-moon">&nbsp;</i>',
     };
     const SST_KEY = 'jtd-theme';
 
