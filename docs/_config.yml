@@ -1,5 +1,6 @@
 # the theme we use
 remote_theme: just-the-docs/just-the-docs
+color_scheme: dark
 
 # this is the main title visible in the left side bar and in the browser title
 title: AWS Testing
@@ -12,8 +13,6 @@ content:
   samples: https://github.com/Idea-Pool/aws-testing/tree/main/samples
 
 permalink: pretty
-
-theme: dark
 
 exclude:
   # from https://github.com/jekyll/jekyll/blob/master/lib/site_template/_config.yml:
