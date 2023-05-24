@@ -199,6 +199,9 @@ In the pages of this documentation, we will use AWS CDK to define the infrastruc
 
 Infrastructure testing can be broadly categorized into two main types: static testing and dynamic testing.
 
+{: .important }
+We will list typical test cases for both static and dynamic infrastructure testing for each AWS Service in the **AWS Services** section.
+
 ### Static Testing
 
 Static testing plays a critical role in catching potential issues early in the deployment process. It involves validating the IaC templates for their correctness and reliability.
