@@ -1,5 +1,6 @@
 # the theme we use
 remote_theme: just-the-docs/just-the-docs
+color_scheme: dark
 
 # this is the main title visible in the left side bar and in the browser title
 title: AWS Testing
@@ -104,12 +105,11 @@ aux_links_new_tab: true
 #     url: http://ideapool.community
 
 gh_edit_link: true
-gh_edit_link_text: Help us improve this page
+gh_edit_link_text: Help us improve this page with your contribution
 gh_edit_repository: https://github.com/Idea-Pool/aws-testing
 gh_edit_branch: main
+gh_edit_source: docs
 gh_edit_view_mode: tree
-
-color_scheme: nil
 
 ga_tracking: GTM-MN2TZZV
 ga_tracking_anonymize_ip: true

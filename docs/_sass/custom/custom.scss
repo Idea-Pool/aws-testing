@@ -14,3 +14,12 @@ figcaption {
     width: 80%;
     margin: 0 auto;
 }
+
+.js-toggle-dark-mode {
+    padding: 0.3em 0.5em;
+    margin: 0.8em auto;
+
+    &, &:focus, &:hover, &:focus:hover {
+        box-shadow: none;
+    }
+}
