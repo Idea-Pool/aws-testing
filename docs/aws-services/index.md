@@ -7,4 +7,45 @@ has_children: true
 
 # Testing AWS services
 
-{% include wip.md %}
+AWS (Amazon Web Services) is a comprehensive cloud computing platform provided by Amazon. It offers a vast range of services and tools that enable businesses and individuals to build, deploy, and manage applications and infrastructure in a highly scalable and cost-effective manner. AWS operates on a global scale, with data centers located in various regions worldwide, ensuring low-latency access and high availability.
+{: .fs-6 .fw-300 }
+
+With AWS, users can leverage a pay-as-you-go model, where they pay only for the resources they consume, allowing for flexibility and cost optimization. Additionally, AWS provides robust security measures and compliance frameworks, ensuring the protection and privacy of data.
+
+## Pricing and Free Tier
+
+AWS offers a variety of pricing options, allowing users to select the most suitable model based on their needs. The pricing is based on the type and size of resources used, such as compute instances, storage, and data transfer.
+
+For those new to AWS, the platform provides a **Free Tier** that offers limited access to many services for a 12-month period. This allows users to explore and experiment with AWS services at no cost. The Free Tier includes a generous set of resources, such as EC2 instances, S3 storage, and RDS databases, enabling users to get hands-on experience with various services without incurring charges.
+
+## Setting up AWS Environment
+
+To begin working with AWS, you can follow these steps to set up your environment.
+
+1. **Create an account**: If you don't already have an AWS account, you can sign up for one on the AWS website. The registration process is straightforward and requires basic information: [AWS Free Tier](https://aws.amazon.com/free/){:target="_blank"}.
+2. **Set up AWS CLI**: The AWS CLI allows you to interact with AWS services from the command line. Follow this guide to install it: [Getting started with the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html){:target="_blank"}.
+3. **Configure AWS CLI**: After installing the AWS CLI, you need to configure it with your AWS Access Key ID and Secret Access Key: [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html){:target="_blank"}.
+4. **Set up AWS CDK**: AWS CDK is used in our sample stacks. If you want to deploy and use them, you'll need AWS CDK installed: [Getting started with the AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html){:target="_blank"}.
+
+## AWS Services and Testing Activities
+
+On the children pages we will cover in details the following services:
+* **[API Gateway]({{ 'aws-services/api-gateway.html' | relative_url }})**: API Gateway is a fully managed service that enables the creation, deployment, and management of APIs. During testing, you can validate the functionality and performance of your APIs, including authentication and authorization mechanisms, request/response handling, and integration with backend services.
+* **Athena**: Amazon Athena allows you to analyze data stored in Amazon S3 using SQL queries. In testing scenarios, you can verify the accuracy of query results, assess query performance, and validate data formats and structures.
+* **CloudWatch**: CloudWatch is a monitoring and observability service that provides real-time insights into AWS resources and applications. In testing, you can observe the logs, set up alarms and metrics to track the health and performance of your systems, ensuring they meet predefined thresholds.
+* **DynamoDB**: DynamoDB is a fully managed NoSQL database service. Testing activities may include validating data consistency, scalability, and performance under different workload conditions, as well as testing the integration of DynamoDB with your applications.
+* **EC2**: Amazon Elastic Compute Cloud (EC2) offers resizable compute capacity in the cloud. During testing, you can assess the performance and scalability of your applications running on EC2 instances, test different instance types, and evaluate load balancing and auto-scaling configurations.
+* **ECS**: Amazon Elastic Container Service (ECS) is a scalable container orchestration service. Testing activities may involve container image deployment, scaling policies, and monitoring the performance of containerized applications.
+* **ELB**: Elastic Load Balancing (ELB) distributes incoming application traffic across multiple EC2 instances or containers. Testing can include validating load balancing algorithms, health checks, and failover mechanisms.
+* **EventBridge**: EventBridge is a serverless event bus service that simplifies the integration and delivery of events across various AWS services and third-party applications. During testing, you can verify event routing, transformation, and reliable delivery.
+* **Glue**: AWS Glue is a fully managed extract, transform, and load (ETL) service for data preparation and transformation. Testing activities may involve validating data ingestion, transformation logic, and data quality checks.
+* **IAM**: AWS Identity and Access Management (IAM) allows you to manage user access and permissions for AWS services. In testing, you can verify role-based access controls, authentication mechanisms, and fine-grained permissions.
+* **Lambda**: AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. Testing activities can include function invocation, performance testing, and integration with other AWS services.
+* **RDS**: Amazon Relational Database Service (RDS) offers managed database solutions for various database engines. During testing, you can evaluate database performance, replication configurations, and backup and restore processes.
+* **S3**: Amazon Simple Storage Service (S3) provides scalable object storage for various data types. Testing may involve data upload and retrieval, access controls, data durability, and performance benchmarks.
+* **SNS**: Simple Notification Service (SNS) enables the publishing and delivery of messages to subscribed endpoints. In testing, you can verify message delivery, notification formats, and integration with other AWS services.
+* **SQS**: Simple Queue Service (SQS) is a fully managed message queuing service. Testing activities may involve message processing, queue management, and assessing the reliability of message delivery.
+* **Step Functions**: AWS Step Functions allows you to coordinate distributed applications and microservices using visual workflows. During testing, you can validate state transitions, error handling, and the overall flow of your applications.
+* **VPC**: Amazon Virtual Private Cloud (VPC) enables you to create a logically isolated network within AWS. Testing activities may include network configuration, security group rules, and connectivity testing between resources.
+
+By understanding these AWS services and their associated testing activities, you can effectively test and ensure the reliability, performance, and security of your applications and infrastructure on the AWS platform.
