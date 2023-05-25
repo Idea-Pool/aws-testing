@@ -22,11 +22,10 @@ For those new to AWS, the platform provides a **Free Tier** that offers limited 
 {: .important }
 > **Managing Costs while using the CDK Examples**
 > 
-> The CDK stack examples provided in this guide predominantly utilize Free Tier services available on AWS. However, it is essential to be aware that some services may incur charges, even within the Free Tier limits. To avoid unexpected costs, it is crucial to exercise caution and closely monitor your resource usage.
+> We aimed to utilize mostly Free Tier services available on AWS in the sample CDK stack used in this guide. However, it is essential to be aware that **some services may incur charges**, even within the Free Tier limits. To avoid unexpected costs, it is crucial to exercise caution and closely monitor your resource usage.
 > 
-> We strongly recommend that you take precautionary measures by thoroughly reviewing the services used in the sample stack and ensuring their compatibility with the Free Tier. Additionally, it is advisable to promptly deprovision or delete the sample stack once you have completed your testing or learning exercises. This ensures that you do not inadvertently continue incurring any unintended costs.
+> We strongly recommend that you take precautionary measures by thoroughly reviewing the services used in the sample stack and ensuring their compatibility with the Free Tier. Additionally, it is advisable to promptly deprovision or **delete the sample stack once you have completed your testing or learning exercises**. This ensures that you do not inadvertently continue incurring any unintended costs.
 >
-> Learn more about managing and monitoring your cost:
 > * [Tracking your AWS Free Tier usage](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.html){:target="_blank"}
 > * [Avoiding unexpected charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/checklistforunwantedcharges.html){:target="_blank"}
 
@@ -63,8 +62,7 @@ On the children pages we will cover in details the following services:
 By understanding these AWS services and their associated testing activities, you can effectively test and ensure the reliability, performance, and security of your applications and infrastructure on the AWS platform.
 
 {: .note }
-> It's important to note that the list of AWS services provided above is not exhaustive. AWS offers a wide range of services catering to diverse use cases and industries.
-> 
+> It's important to note that the list of AWS services provided above is not exhaustive. 
 > As you explore and work with AWS, you may come across additional services that are relevant to your specific needs and testing requirements. We encourage you to extend this list based on your experiences and share your insights with the community.
 > 
 > If you have valuable expertise or testing insights related to AWS services not mentioned here, **we welcome you to contribute to this guide**. Your contributions can enhance the collective knowledge and benefit others who are navigating the world of AWS testing. 
