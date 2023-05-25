@@ -1,9 +1,9 @@
 ---
-title: Events
+title: Step Functions
 layout: default
 parent: AWS Services
 ---
 
-# Events
+# Step Functions
 
 {% include wip.md %}

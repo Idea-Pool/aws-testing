@@ -1,9 +1,9 @@
 ---
-title: Step Function
+title: EventBridge
 layout: default
 parent: AWS Services
 ---
 
-# Step Function
+# EventBridge
 
 {% include wip.md %}
