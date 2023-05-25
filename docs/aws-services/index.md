@@ -3,6 +3,7 @@ title: AWS Services
 layout: default
 nav_order: 5
 has_children: true
+has_toc: false
 ---
 
 # Testing AWS services
@@ -18,11 +19,22 @@ AWS offers a variety of pricing options, allowing users to select the most suita
 
 For those new to AWS, the platform provides a **Free Tier** that offers limited access to many services for a 12-month period. This allows users to explore and experiment with AWS services at no cost. The Free Tier includes a generous set of resources, such as EC2 instances, S3 storage, and RDS databases, enabling users to get hands-on experience with various services without incurring charges.
 
+{: .important }
+> **Managing Costs while using the CDK Examples**
+> 
+> The CDK stack examples provided in this guide predominantly utilize Free Tier services available on AWS. However, it is essential to be aware that some services may incur charges, even within the Free Tier limits. To avoid unexpected costs, it is crucial to exercise caution and closely monitor your resource usage.
+> 
+> We strongly recommend that you take precautionary measures by thoroughly reviewing the services used in the sample stack and ensuring their compatibility with the Free Tier. Additionally, it is advisable to promptly deprovision or delete the sample stack once you have completed your testing or learning exercises. This ensures that you do not inadvertently continue incurring any unintended costs.
+>
+> Learn more about managing and monitoring your cost:
+> * [Tracking your AWS Free Tier usage](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.html){:target="_blank"}
+> * [Avoiding unexpected charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/checklistforunwantedcharges.html){:target="_blank"}
+
 ## Setting up AWS Environment
 
 To begin working with AWS, you can follow these steps to set up your environment.
 
-1. **Create an account**: If you don't already have an AWS account, you can sign up for one on the AWS website. The registration process is straightforward and requires basic information: [AWS Free Tier](https://aws.amazon.com/free/){:target="_blank"}.
+1. **Create an account**: If you don't already have an AWS account, you can sign up for one on the AWS website. The registration process is straightforward and requires basic information: [Create and activate AWS account](https://repost.aws/knowledge-center/create-and-activate-aws-account){:target="_blank"} or [AWS Free Tier](https://aws.amazon.com/free/){:target="_blank"}.
 2. **Set up AWS CLI**: The AWS CLI allows you to interact with AWS services from the command line. Follow this guide to install it: [Getting started with the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html){:target="_blank"}.
 3. **Configure AWS CLI**: After installing the AWS CLI, you need to configure it with your AWS Access Key ID and Secret Access Key: [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html){:target="_blank"}.
 4. **Set up AWS CDK**: AWS CDK is used in our sample stacks. If you want to deploy and use them, you'll need AWS CDK installed: [Getting started with the AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html){:target="_blank"}.
