@@ -25,10 +25,7 @@ figcaption {
 }
 
 .aws-service {
-    padding-left: 95px;
-}
-
-.aws-service img {
-    float: left;
-    margin: 0.3em 0.5em 0 -95px;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5em;
 }

@@ -1,0 +1,12 @@
+<div class="aws-service">
+    <div class="aws-icon">
+        <img src="{{ '/assets/images/icons/64/' | append: include.icon | append: '.png' | relative_url }}"
+            alt="{{ include.icon }}" />
+    </div>
+    <p>
+        <strong>
+            <a href="{{ 'aws-services/' | append: include.page | relative_url }}">{{ include.service }}</a>
+        </strong>
+        {{ include.content }}
+    </p>
+</div>
