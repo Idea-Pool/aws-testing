@@ -59,7 +59,7 @@ On the children pages we will cover in details the following services:
 * **[Step Functions]({{ 'aws-services/step-functions' | relative_url }})**: AWS Step Functions allows you to coordinate distributed applications and microservices using visual workflows. During testing, you can validate state transitions, error handling, and the overall flow of your applications.
 * **[VPC]({{ 'aws-services/vpc' | relative_url }})**: Amazon Virtual Private Cloud (VPC) enables you to create a logically isolated network within AWS. Testing activities may include network configuration, security group rules, and connectivity testing between resources.
 
-By understanding these AWS services and their associated testing activities, you can effectively test and ensure the reliability, performance, and security of your applications and infrastructure on the AWS platform.
+By understanding these AWS services and their associated testing activities, you can effectively test and ensure the functionality, reliability, performance, and security of your applications and infrastructure on the AWS platform.
 
 {: .note }
 > It's important to note that the list of AWS services provided above is not exhaustive. 
