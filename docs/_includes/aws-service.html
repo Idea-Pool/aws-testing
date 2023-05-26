@@ -4,9 +4,8 @@
             alt="{{ include.icon }}" width="64" />
     </div>
     <p>
-        <strong>
-            <a href="{{ 'aws-services/' | append: include.page | relative_url }}">{{ include.service }}</a>
-        </strong>
-        {{ include.content }}
+        <a href="{{ 'aws-services/' | append: include.page | relative_url }}">
+            <strong>{{ include.service }}</strong>
+        </a>: {{ include.content }}
     </p>
 </div>
