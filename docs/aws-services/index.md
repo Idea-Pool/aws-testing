@@ -41,23 +41,50 @@ To begin working with AWS, you can follow these steps to set up your environment
 ## AWS Services and Testing Activities
 
 On the children pages we will cover in details the following services:
-* {% include icon.html size=16 icon="S3" %} **[API Gateway]({{ 'aws-services/api-gateway' | relative_url }})**: API Gateway is a fully managed service that enables the creation, deployment, and management of APIs. During testing, you can validate the functionality and performance of your APIs, including authentication and authorization mechanisms, request/response handling, and integration with backend services.
-* {% include icon.html size=32 icon="S3" %} **[Athena]({{ 'aws-services/athena' | relative_url }})**: Amazon Athena allows you to analyze data stored in Amazon S3 using SQL queries. In testing scenarios, you can verify the accuracy of query results, assess query performance, and validate data formats and structures.
-* {% include icon.html size=48 icon="S3" %} **[CloudWatch]({{ 'aws-services/cloudwatch' | relative_url }})**: CloudWatch is a monitoring and observability service that provides real-time insights into AWS resources and applications. In testing, you can observe the logs, set up alarms and metrics to track the health and performance of your systems, ensuring they meet predefined thresholds.
-* {% include icon.html size=64 icon="S3" %} **[DynamoDB]({{ 'aws-services/dynamodb' | relative_url }})**: DynamoDB is a fully managed NoSQL database service. Testing activities may include validating data consistency, scalability, and performance under different workload conditions, as well as testing the integration of DynamoDB with your applications.
-* **[EC2]({{ 'aws-services/ec2' | relative_url }})**: Amazon Elastic Compute Cloud (EC2) offers resizable compute capacity in the cloud. During testing, you can assess the performance and scalability of your applications running on EC2 instances, test different instance types, and evaluate load balancing and auto-scaling configurations. EC2 instances can be also used to host test automation solutions.
-* **[ECS]({{ 'aws-services/ecs' | relative_url }})**: Amazon Elastic Container Service (ECS) is a scalable container orchestration service. Testing activities may involve container image deployment, scaling policies, and monitoring the performance of containerized applications.
-* **[ELB]({{ 'aws-services/elb' | relative_url }})**: Elastic Load Balancing (ELB) distributes incoming application traffic across multiple EC2 instances or containers. Testing can include validating load balancing algorithms, health checks, and failover mechanisms.
-* **[EventBridge]({{ 'aws-services/eventbridge' | relative_url }})**: EventBridge is a serverless event bus service that simplifies the integration and delivery of events across various AWS services and third-party applications. During testing, you can verify event routing, transformation, and reliable delivery.
-* **[Glue]({{ 'aws-services/glue' | relative_url }})**: AWS Glue is a fully managed extract, transform, and load (ETL) service for data preparation and transformation. Testing activities may involve validating data ingestion, transformation logic, and data quality checks.
-* **[IAM]({{ 'aws-services/iam' | relative_url }})**: AWS Identity and Access Management (IAM) allows you to manage user access and permissions for AWS services. In testing, you can verify role-based access controls, authentication mechanisms, and fine-grained permissions.
-* **[Lambda]({{ 'aws-services/lambda' | relative_url }})**: AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. Testing activities can include function invocation, performance testing, and integration with other AWS services.
-* **[RDS]({{ 'aws-services/rds' | relative_url }})**: Amazon Relational Database Service (RDS) offers managed database solutions for various database engines. During testing, you can evaluate database performance, replication configurations, and backup and restore processes.
-* **[S3]({{ 'aws-services/s3' | relative_url }})**: Amazon Simple Storage Service (S3) provides scalable object storage for various data types. Testing may involve data upload and retrieval, access controls, data durability, and performance benchmarks.
-* **[SNS]({{ 'aws-services/sns' | relative_url }})**: Simple Notification Service (SNS) enables the publishing and delivery of messages to subscribed endpoints. In testing, you can verify message delivery, notification formats, and integration with other AWS services.
-* **[SQS]({{ 'aws-services/sqs' | relative_url }})**: Simple Queue Service (SQS) is a fully managed message queuing service. Testing activities may involve message processing, queue management, and assessing the reliability of message delivery.
-* **[Step Functions]({{ 'aws-services/step-functions' | relative_url }})**: AWS Step Functions allows you to coordinate distributed applications and microservices using visual workflows. During testing, you can validate state transitions, error handling, and the overall flow of your applications.
-* **[VPC]({{ 'aws-services/vpc' | relative_url }})**: Amazon Virtual Private Cloud (VPC) enables you to create a logically isolated network within AWS. Testing activities may include network configuration, security group rules, and connectivity testing between resources.
+
+{% include aws-service.md icon="APIGateway" service="API Gateway" page="api-gateway"
+    content="API Gateway is a fully managed service that enables the creation, deployment, and management of APIs. During testing, you can validate the functionality and performance of your APIs, including authentication and authorization mechanisms, request/response handling, and integration with backend services." %}
+
+{% include aws-service.md icon="Athena" service="Athena" page="athena"
+    content="Amazon Athena allows you to analyze data stored in Amazon S3 using SQL queries. In testing scenarios, you can verify the accuracy of query results, assess query performance, and validate data formats and structures." %}
+
+{% include aws-service.md icon="CloudWatch" service="CloudWatch" page="cloudwatch"
+    content="CloudWatch is a monitoring and observability service that provides real-time insights into AWS resources and applications. In testing, you can observe the logs, set up alarms and metrics to track the health and performance of your systems, ensuring they meet predefined thresholds." %}
+
+{% include aws-service.md icon="DynamoDB" service="DynamoDB" page="dynamodb"
+    content="DynamoDB is a fully managed NoSQL database service. Testing activities may include validating data consistency, scalability, and performance under different workload conditions, as well as testing the integration of DynamoDB with your applications." %}
+
+{% include aws-service.md icon="EC2" service="EC2" page="ec2"
+    content="Amazon Elastic Compute Cloud (EC2) offers resizable compute capacity in the cloud. During testing, you can assess the performance and scalability of your applications running on EC2 instances, test different instance types, and evaluate load balancing and auto-scaling configurations. EC2 instances can be also used to host test automation solutions." %}
+
+**[ECS]({{ 'aws-services/ecs' | relative_url }})**: Amazon Elastic Container Service (ECS) is a scalable container orchestration service. Testing activities may involve container image deployment, scaling policies, and monitoring the performance of containerized applications.
+{: .aws-service }
+
+**[ELB]({{ 'aws-services/elb' | relative_url }})**: Elastic Load Balancing (ELB) distributes incoming application traffic across multiple EC2 instances or containers. Testing can include validating load balancing algorithms, health checks, and failover mechanisms.
+{: .aws-service }
+
+**[EventBridge]({{ 'aws-services/eventbridge' | relative_url }})**: EventBridge is a serverless event bus service that simplifies the integration and delivery of events across various AWS services and third-party applications. During testing, you can verify event routing, transformation, and reliable delivery.
+{: .aws-service }
+
+**[Glue]({{ 'aws-services/glue' | relative_url }})**: AWS Glue is a fully managed extract, transform, and load (ETL) service for data preparation and transformation. Testing activities may involve validating data ingestion, transformation logic, and data quality checks.
+{: .aws-service }
+
+**[IAM]({{ 'aws-services/iam' | relative_url }})**: AWS Identity and Access Management (IAM) allows you to manage user access and permissions for AWS services. In testing, you can verify role-based access controls, authentication mechanisms, and fine-grained permissions.
+{: .aws-service }
+
+**[Lambda]({{ 'aws-services/lambda' | relative_url }})**: AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. Testing activities can include function invocation, performance testing, and integration with other AWS services.
+
+**[RDS]({{ 'aws-services/rds' | relative_url }})**: Amazon Relational Database Service (RDS) offers managed database solutions for various database engines. During testing, you can evaluate database performance, replication configurations, and backup and restore processes.
+
+**[S3]({{ 'aws-services/s3' | relative_url }})**: Amazon Simple Storage Service (S3) provides scalable object storage for various data types. Testing may involve data upload and retrieval, access controls, data durability, and performance benchmarks.
+
+**[SNS]({{ 'aws-services/sns' | relative_url }})**: Simple Notification Service (SNS) enables the publishing and delivery of messages to subscribed endpoints. In testing, you can verify message delivery, notification formats, and integration with other AWS services.
+
+**[SQS]({{ 'aws-services/sqs' | relative_url }})**: Simple Queue Service (SQS) is a fully managed message queuing service. Testing activities may involve message processing, queue management, and assessing the reliability of message delivery.
+
+**[Step Functions]({{ 'aws-services/step-functions' | relative_url }})**: AWS Step Functions allows you to coordinate distributed applications and microservices using visual workflows. During testing, you can validate state transitions, error handling, and the overall flow of your applications
+
+**[VPC]({{ 'aws-services/vpc' | relative_url }})**: Amazon Virtual Private Cloud (VPC) enables you to create a logically isolated network within AWS. Testing activities may include network configuration, security group rules, and connectivity testing between resources.
 
 By understanding these AWS services and their associated testing activities, you can effectively test and ensure the functionality, reliability, performance, and security of your applications and infrastructure on the AWS platform.
 

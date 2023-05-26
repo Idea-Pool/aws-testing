@@ -1,0 +1,2 @@
+![{{ include.icon }}]({{ '/assets/images/icons/64/' | append: include.icon | append: '.png' | relative_url }}) **{{ include.service }}]({{ 'aws-services/' | append: include.page | relative_url }})**: {{ include.content }}
+{: .aws-service }
