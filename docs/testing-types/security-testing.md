@@ -7,4 +7,4 @@ parent: Testing types
 
 # Security testing
 
-{% include wip.md %}
+{% include wip.html %}

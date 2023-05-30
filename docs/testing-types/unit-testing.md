@@ -7,4 +7,4 @@ parent: Testing types
 
 # Unit testing
 
-{% include wip.md %}
+{% include wip.html %}

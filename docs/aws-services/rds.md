@@ -9,4 +9,4 @@ parent: AWS Services
 {% include aws-service.html icon="RDS" service="RDS" page="rds" headline=true
     content="Amazon Relational Database Service (RDS) offers managed database solutions for various database engines." %}
 
-{% include wip.md %}
+{% include wip.html %}

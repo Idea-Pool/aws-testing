@@ -9,4 +9,4 @@ parent: AWS Services
 {% include aws-service.html icon="SQS" service="SQS" page="sqs" headline=true
     content="Simple Queue Service (SQS) is a fully managed message queuing service." %}
 
-{% include wip.md %}
+{% include wip.html %}

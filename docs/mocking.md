@@ -6,4 +6,4 @@ nav_order: 6
 
 # Mocking
 
-{% include wip.md %}
+{% include wip.html %}

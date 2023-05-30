@@ -9,4 +9,4 @@ parent: AWS Services
 {% include aws-service.html icon="ECS" service="ECS" page="ecs" headline=true
     content="Amazon Elastic Container Service (ECS) is a scalable container orchestration service." %}
 
-{% include wip.md %}
+{% include wip.html %}
