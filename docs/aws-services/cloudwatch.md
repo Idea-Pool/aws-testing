@@ -6,7 +6,7 @@ parent: AWS Services
 
 # CloudWatch
 
-CloudWatch is a monitoring and observability service that provides real-time insights into AWS resources and applications.
-{: .fs-6 .fw-300 }
+{% include aws-service.html icon="CloudWatch" service="CloudWatch" page="cloudwatch" headline=true
+    content="CloudWatch is a monitoring and observability service that provides real-time insights into AWS resources and applications." %}
 
 {% include wip.md %}

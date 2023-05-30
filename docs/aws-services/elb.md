@@ -6,7 +6,7 @@ parent: AWS Services
 
 # ELB
 
-Elastic Load Balancing (ELB) distributes incoming application traffic across multiple EC2 instances or containers.
-{: .fs-6 .fw-300 }
+{% include aws-service.html icon="ELB" service="ELB" page="elb" headline=true
+    content="Elastic Load Balancing (ELB) distributes incoming application traffic across multiple EC2 instances or containers." %}
 
 {% include wip.md %}

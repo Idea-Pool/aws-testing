@@ -6,7 +6,7 @@ parent: AWS Services
 
 # DynamoDB
 
-DynamoDB is a fully managed NoSQL database service.
-{: .fs-6 .fw-300 }
+{% include aws-service.html icon="DynamoDB" service="DynamoDB" page="dynamodb" headline=true
+    content="DynamoDB is a fully managed NoSQL database service." %}
 
 {% include wip.md %}

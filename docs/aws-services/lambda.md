@@ -6,7 +6,7 @@ parent: AWS Services
 
 # Lambda
 
-AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers.
-{: .fs-6 .fw-300 }
+{% include aws-service.html icon="Lambda" service="Lambda" page="lambda" headline=true
+    content="AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers." %}
 
 {% include wip.md %}

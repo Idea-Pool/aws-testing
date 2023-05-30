@@ -6,7 +6,7 @@ parent: AWS Services
 
 # SQS
 
-Simple Queue Service (SQS) is a fully managed message queuing service.
-{: .fs-6 .fw-300 }
+{% include aws-service.html icon="SQS" service="SQS" page="sqs" headline=true
+    content="Simple Queue Service (SQS) is a fully managed message queuing service." %}
 
 {% include wip.md %}

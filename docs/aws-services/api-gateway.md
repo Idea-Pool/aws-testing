@@ -1,12 +1,9 @@
 ---
 title: API Gateway
-layout: default
+layout: service
 parent: AWS Services
+service: API Gateway
+icon: APIGateway
+headline: API Gateway is a fully managed service that enables the creation, deployment, and management of APIs.
+wip: true
 ---
-
-# API Gateway
-
-{% include aws-service.html icon="APIGateway" service="API Gateway" page="api-gateway" headline=true
-    content="API Gateway is a fully managed service that enables the creation, deployment, and management of APIs." %}
-
-{% include wip.md %}

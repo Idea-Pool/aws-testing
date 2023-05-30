@@ -6,7 +6,7 @@ parent: AWS Services
 
 # ECS
 
-Amazon Elastic Container Service (ECS) is a scalable container orchestration service.
-{: .fs-6 .fw-300 }
+{% include aws-service.html icon="ECS" service="ECS" page="ecs" headline=true
+    content="Amazon Elastic Container Service (ECS) is a scalable container orchestration service." %}
 
 {% include wip.md %}
