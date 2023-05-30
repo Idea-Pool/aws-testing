@@ -104,3 +104,9 @@ dist
 .tern-port
 
 .DS_Store
+
+vendor
+Gemfile
+Gemfile.lock
+
+docs/_site
