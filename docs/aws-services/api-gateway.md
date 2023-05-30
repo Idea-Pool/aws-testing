@@ -6,7 +6,7 @@ parent: AWS Services
 
 # API Gateway
 
-API Gateway is a fully managed service that enables the creation, deployment, and management of APIs.
-{: .fs-6 .fw-300 }
+{% include aws-service.html icon="APIGateway" service="API Gateway" page="api-gateway" headline=true
+    content="API Gateway is a fully managed service that enables the creation, deployment, and management of APIs." %}
 
 {% include wip.md %}
