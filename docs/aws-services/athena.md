@@ -1,12 +1,8 @@
 ---
 title: Athena
-layout: default
+layout: service
 parent: AWS Services
+icon: Athena
+headline: Amazon Athena allows you to analyze data stored in Amazon S3 using SQL queries.
+wip: true
 ---
-
-# Athena
-
-{% include aws-service.html icon="Athena" service="Athena" page="athena" headline=true
-    content="Amazon Athena allows you to analyze data stored in Amazon S3 using SQL queries." %}
-
-{% include wip.html %}

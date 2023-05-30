@@ -1,12 +1,8 @@
 ---
 title: RDS
-layout: default
+layout: service
 parent: AWS Services
+icon: RDS
+headline: Amazon Relational Database Service (RDS) offers managed database solutions for various database engines.
+wip: true
 ---
-
-# RDS
-
-{% include aws-service.html icon="RDS" service="RDS" page="rds" headline=true
-    content="Amazon Relational Database Service (RDS) offers managed database solutions for various database engines." %}
-
-{% include wip.html %}

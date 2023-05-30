@@ -1,12 +1,8 @@
 ---
 title: IAM
-layout: default
+layout: service
 parent: AWS Services
+icon: IAM
+headline: AWS Identity and Access Management (IAM) allows you to manage user access and permissions for AWS services.
+wip: true
 ---
-
-# IAM
-
-{% include aws-service.html icon="IAM" service="IAM" page="iam" headline=true
-    content="AWS Identity and Access Management (IAM) allows you to manage user access and permissions for AWS services." %}
-
-{% include wip.html %}
