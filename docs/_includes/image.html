@@ -1,17 +1,17 @@
 <figure class="image">
     {% if include.url contains "/assets/" %}
-        <img src="{{ include.url | relative_url }}" alt="{{ include.description }}">
+    <img src="{{ include.url | relative_url }}" alt="{{ include.description }}">
     {% else %}
-        <img src="{{ include.url }}" alt="{{ include.description }}">
+    <img src="{{ include.url }}" alt="{{ include.description }}">
     {% endif %}
     <figcaption>
         {{ include.description }}
         {% if include.source %}
-            - Source:
-            <a href="{{ include.source }}" target="_blank">{{ include.source }}</a>
+        - Source:
+        <a href="{{ include.source }}" target="_blank">{{ include.source }}</a>
         {% elsif include.url contains "http" %}
-            - Source:
-            <a href="{{ include.url }}" target="_blank">{{ include.url }}</a>
+        - Source:
+        <a href="{{ include.url }}" target="_blank">{{ include.url }}</a>
         {% endif %}
     </figcaption>
 </figure>

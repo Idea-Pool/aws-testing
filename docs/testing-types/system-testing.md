@@ -7,4 +7,4 @@ parent: Testing types
 
 # System testing
 
-{% include wip.md %}
+{% include wip.html %}
