@@ -28,7 +28,7 @@
     "@aws-sdk/client-cloudfront": "^3.431.0",
     "@aws-sdk/client-s3": "^3.431.0",
     "aws-cdk-lib": "2.80.0",
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "constructs": "^10.0.0",
     "dotenv-ng": "^1.1.4",
     "source-map-support": "^0.5.21"
