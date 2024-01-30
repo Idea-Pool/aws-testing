@@ -67,7 +67,7 @@ back_to_top: true
 back_to_top_text: Back to top
 
 footer_content: Copyright &copy; 2022- Idea Pool Community.
-  Distributed by an <a href="https://github.com/idea-pool/aws-testing/tree/main/LICENSE" target="_blank">CC BY-NC-ND 4.0 license.</a>
+  Distributed by an <a href="https://github.com/idea-pool/aws-testing/tree/main/LICENSE" target="_blank">CC BY-NC-ND 4.0</a> license.
   Idea Pool <a href="https://github.com/idea-pool" target="_blank">@GitHub</a>,
   <a href="http://ideapool.community" target="_blank">@WeAreCommunity</a>.
   <br>This site is <strong>under development</strong>.
