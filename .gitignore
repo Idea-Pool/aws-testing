@@ -109,4 +109,6 @@ vendor
 Gemfile
 Gemfile.lock
 
+.idea
+
 docs/_site
