@@ -101,6 +101,7 @@ aux_links_new_tab: true
 nav_external_links:
   - title: Contribution Guideline
     url: https://github.com/Idea-Pool/aws-testing/blob/main/CONTRIBUTING.md
+    opens_in_new_tab: true
 #   - title: Idea Pool@GitHub
 #     url: https://github.com/idea-pool
 #   - title: Idea Pool@WeAreCommunity
